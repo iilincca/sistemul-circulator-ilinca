@@ -673,3 +673,818 @@
 </body>
 </html>
 
+/* Resetare stiluri implicite */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Stilizare generală */
+body {
+  font-family: 'Inter', 'Arial', sans-serif;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+/* Header - modernizat cu rgba roșu */
+header {
+  background-color: rgba(255, 5, 5, 0.8);
+  color: white;
+  text-align: center;
+  padding: 2.5rem 0;
+  box-shadow: 0 4px 15px rgba(255, 5, 5, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 5, 5, 0.7), rgba(155, 5, 5, 0.8));
+  z-index: -1;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+header p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Navbar - culoare mai închisă pentru contrast */
+nav {
+  background-color: rgba(200, 5, 5, 0.9);
+  color: white;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a:hover {
+  color: rgba(255, 240, 240, 1);
+  transform: translateY(-2px);
+}
+
+.text-ro, .text-en {
+  display: inline-block;
+}
+
+nav a.text-en {
+  display: none;
+}
+
+/* Main content */
+main {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: rgba(255, 5, 5, 0.8);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: rgba(255, 5, 5, 0.5);
+  border-radius: 2px;
+}
+
+section {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(255, 5, 5, 0.1);
+  transition: all 0.4s ease;
+  scroll-margin-top: 100px;
+  border-left: 4px solid rgba(255, 5, 5, 0.5);
+}
+
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(255, 5, 5, 0.2);
+  background-color: #fff;
+}
+
+section img {
+  width: 100%;
+  max-width: 800px;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+section img:hover {
+  transform: scale(1.02);
+}
+
+section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-top: 1.5rem;
+  color: #444;
+}
+
+/* Footer */
+footer {
+  background-color: rgba(200, 5, 5, 0.9);
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 1rem;
+  margin-top: 5rem;
+  position: relative;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, transparent, rgba(255, 5, 5, 0.5), transparent);
+}
+
+footer a {
+  color: white;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: rgba(255, 230, 230, 1);
+}
+
+/* Butoane - Language și Dark Mode */
+.utility-buttons {
+  display: flex;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+#languageBtn, #darkModeBtn {
+  background-color: white;
+  color: rgba(255, 5, 5, 0.8);
+  border: 2px solid rgba(255, 5, 5, 0.5);
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 0.6rem;
+}
+
+#languageBtn:hover, #darkModeBtn:hover {
+  background-color: rgba(255, 5, 5, 0.8);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+  
+  nav a {
+    font-size: 0.9rem;
+    margin: 0 0.5rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  main {
+    padding: 0 1rem;
+  }
+  
+  section {
+    padding: 1.5rem;
+  }
+  
+  p {
+    font-size: 1rem;
+  }
+  
+  .utility-buttons {
+    position: static;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}
+
+/* Text Containers */
+.text-ro, .text-en {
+  display: block;
+  width: 100%;
+}
+
+.text-ro h2, .text-en h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.text-ro p, .text-en p {
+  text-align: justify;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.text-ro img, .text-en img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Dark Mode Styling */
+body.dark {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark html,
+body.dark main {
+  background-color: #121212;
+}
+
+body.dark section {
+  background-color: #1e1e1e;
+  color: #dddddd;
+  box-shadow: 0 6px 20px rgba(255, 5, 5, 0.15);
+  border-left: 4px solid rgba(255, 5, 5, 0.4);
+}
+
+body.dark section:hover {
+  background-color: #2a2a2a;
+  box-shadow: 0 12px 30px rgba(255, 5, 5, 0.25);
+}
+
+body.dark h2 {
+  color: rgba(255, 100, 100, 0.9);
+}
+
+body.dark p {
+  color: #cccccc;
+}
+
+body.dark header,
+body.dark footer {
+  background-color: rgba(200, 5, 5, 0.85);
+}
+
+body.dark nav {
+  background-color: rgba(150, 5, 5, 0.9);
+}
+
+body.dark #darkModeBtn {
+  background-color: #333;
+  color: #f0f0f0;
+  border-color: rgba(255, 5, 5, 0.5);
+}
+
+body.dark #darkModeBtn:hover {
+  background-color: rgba(255, 5, 5, 0.7);
+}
+
+/* Scroll to Top Button */
+#scrollTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  background-color: rgba(255, 5, 5, 0.7);
+  color: white;
+  border: none;
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#scrollTopBtn:hover {
+  background-color: rgba(255, 5, 5, 0.9);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+body.dark #scrollTopBtn {
+  background-color: rgba(255, 5, 5, 0.6);
+  color: white;
+}
+
+/* Video and Button Styling */
+#inima button {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: rgba(255, 5, 5, 0.7);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+#inima button:hover {
+  background-color: rgba(255, 5, 5, 0.9);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 5, 5, 0.3);
+}
+
+#inima video {
+  display: block;
+  margin: 2rem auto;
+  max-width: 100%;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease;
+}
+
+#inima video:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation for sections on scroll */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-section {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+
+
+/* ===== MEDIA QUERIES PENTRU RESPONSIVE DESIGN ===== */
+
+/* Pentru telefoane mici (sub 576px) */
+@media (max-width: 575.98px) {
+  header h1 {
+    font-size: 22px;
+  }
+  
+  header p {
+    font-size: 14px;
+  }
+  
+  nav a {
+    font-size: 14px;
+    margin: 0 5px;
+  }
+  
+  h2 {
+    font-size: 18px;
+  }
+  
+  section {
+    padding: 12px;
+    margin-bottom: 15px;
+  }
+  
+  section p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  
+  #languageBtn, #darkModeBtn {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+  
+  #scrollTopBtn {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 18px;
+    right: 15px;
+    bottom: 15px;
+  }
+  
+  #inima button {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+
+/* Pentru telefoane (între 576px și 767px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  header h1 {
+    font-size: 26px;
+  }
+  
+  nav a {
+    font-size: 15px;
+    margin: 0 8px;
+  }
+  
+  section {
+    padding: 15px;
+  }
+  
+  h2 {
+    font-size: 20px;
+  }
+  
+  section p {
+    font-size: 16px;
+  }
+}
+
+/* Pentru tablete (între 768px și 991px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  header h1 {
+    font-size: 30px;
+  }
+  
+  main {
+    padding: 0 20px;
+  }
+  
+  section {
+    padding: 18px;
+  }
+  
+  h2 {
+    font-size: 22px;
+  }
+}
+
+/* Pentru desktop-uri mici (între 992px și 1199px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  main {
+    max-width: 960px;
+  }
+}
+
+/* Pentru desktop-uri mari (peste 1200px) */
+@media (min-width: 1200px) {
+  main {
+    max-width: 1140px;
+  }
+  
+  header h1 {
+    font-size: 36px;
+  }
+  
+  section {
+    padding: 25px;
+  }
+}
+
+/* Orientare landscape pentru telefoane */
+@media (max-height: 500px) and (orientation: landscape) {
+  header {
+    padding: 10px 0;
+  }
+  
+  header h1 {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  
+  nav {
+    padding: 8px 0;
+  }
+  
+  section {
+    margin-bottom: 12px;
+    padding: 10px;
+  }
+}
+
+/* Fix pentru butonul de schimbare limbă și dark mode pe mobile */
+@media (max-width: 767.98px) {
+  .utility-buttons {
+    position: static;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    margin-top: 0;
+  }
+  
+  #languageBtn, #darkModeBtn {
+    margin: 0 5px;
+  }
+  
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  nav a {
+    padding: 5px 0;
+  }
+}
+
+/* Optimizări pentru site menu pe telefoane foarte mici */
+@media (max-width: 359.98px) {
+  nav a {
+    font-size: 13px;
+    margin: 0 3px;
+  }
+  
+  #languageBtn, #darkModeBtn {
+    padding: 3px 6px;
+    font-size: 11px;
+  }
+}
+
+/* Ajustări pentru imagini pe dispozitive mobile */
+@media (max-width: 767.98px) {
+  section img {
+    margin: 12px auto;
+  }
+  
+  .text-ro p, .text-en p {
+    width: 100%;
+  }
+}
+
+/* Ajustarea înălțimii pentru header pe dispozitive foarte mici */
+@media (max-height: 400px) {
+  header {
+    padding: 8px 0;
+  }
+  
+  header h1 {
+    margin-bottom: 2px;
+  }
+}
+
+function verificaTestul() {
+  let scor = 0;
+  const raspunsuriCorecte = {
+    q1: "b",
+    q2: "c",
+    q3: "c",
+    q4: "c",
+    q5: "a",
+    q6: "b",
+    q7: "c"
+  };
+
+  for (let intrebare in raspunsuriCorecte) {
+    const variante = document.getElementsByName(intrebare);
+    const corect = raspunsuriCorecte[intrebare];
+
+    for (let i = 0; i < variante.length; i++) {
+      const label = variante[i].parentElement;
+      label.style.color = "";
+
+      if (variante[i].checked) {
+        if (variante[i].value === corect) {
+          scor++;
+          label.style.color = "green";
+        } else {
+          label.style.color = "red";
+        }
+      }
+    }
+  }
+
+  const isRO = document.querySelector(".text-ro").style.display !== "none";
+  let mesaj = "";
+
+  if (isRO) {
+    mesaj = "Ai obținut " + scor + " din 6 puncte.";
+    if (scor === 6) {
+      mesaj += " Felicitări! Ai răspuns corect la toate întrebările!";
+    } else {
+      mesaj += " Mai încearcă! Poți reciti lecția și reveni.";
+    }
+  } else {
+    mesaj = "You got " + scor + " out of 6 points.";
+    if (scor === 6) {
+      mesaj += " Congratulations! You answered all questions correctly!";
+    } else {
+      mesaj += " Try again! You can review the lesson and come back.";
+    }
+  }
+
+  document.getElementById("rezultat").innerText = mesaj;
+}
+
+function refaTestul() {
+  const form = document.getElementById("quizForm");
+  form.reset();
+
+  const labels = form.querySelectorAll("label");
+  labels.forEach(label => label.style.color = "");
+
+  document.getElementById("rezultat").innerText = "";
+}
+
+let currentLang = 'ro';
+
+function toggleLanguage() {
+  currentLang = currentLang === 'ro' ? 'en' : 'ro';
+  document.getElementById("languageBtn").innerText = currentLang === 'ro' ? 'EN' : 'RO';
+
+  const roTexts = document.querySelectorAll('.text-ro');
+  const enTexts = document.querySelectorAll('.text-en');
+
+  roTexts.forEach(el => el.style.display = currentLang === 'ro' ? 'block' : 'none');
+  enTexts.forEach(el => el.style.display = currentLang === 'en' ? 'block' : 'none');
+
+  const navLinks = document.querySelectorAll('#navbar a');
+  navLinks.forEach(link => {
+    const roText = link.getAttribute('data-ro');
+    const enText = link.getAttribute('data-en');
+    link.innerText = currentLang === 'ro' ? roText : enText;
+  });
+}
+
+
+/* === DARK MODE ===
+   Acest cod adaugă posibilitatea de a comuta între modul luminos (Light Mode) și modul întunecat (Dark Mode),
+   folosind un buton. Preferința utilizatorului este salvată în localStorage și se aplică automat la reîncărcarea paginii.
+*/
+
+// Funcția care comută între modurile light și dark și salvează preferința
+function toggleDarkMode() {
+  document.body.classList.toggle("dark"); // adaugă sau elimină clasa "dark"
+  const isDark = document.body.classList.contains("dark");
+
+  // Salvează alegerea în localStorage
+  localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
+
+  // Actualizează textul de pe buton
+  const btn = document.getElementById("darkModeBtn");
+  btn.innerText = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+}
+
+// Când pagina se încarcă, verificăm dacă utilizatorul a ales anterior dark mode
+window.addEventListener("DOMContentLoaded", () => {
+  const savedMode = localStorage.getItem("darkMode");
+
+  if (savedMode === "enabled") {
+    document.body.classList.add("dark"); // aplică clasa "dark"
+    
+    const btn = document.getElementById("darkModeBtn");
+    if (btn) btn.innerText = "☀️ Light Mode"; // actualizează butonul
+  }
+});
+
+/* === Scroll to top – buton „↑ Sus” === */
+window.onscroll = function () {
+  const btn = document.getElementById("scrollTopBtn");
+  if (!btn) return; // protecție
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+};
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+function toggleVideo() {
+  const isRO = document.querySelector('.text-ro').style.display !== 'none';
+  const video = document.getElementById(isRO ? 'videoInimaRO' : 'videoInimaEN');
+
+  if (video.paused) {
+    video.play();
+  } else {
+    video.pause();
+  }
+}
+
+function determinaGrupa() {
+  const isRO = document.querySelector(".text-ro").style.display !== "none";
+  const sufix = isRO ? "-ro" : "-en";
+
+  const antigenA = document.getElementById("antigenA" + sufix).checked;
+  const antigenB = document.getElementById("antigenB" + sufix).checked;
+  const anticorpA = document.getElementById("anticorpA" + sufix).checked;
+  const anticorpB = document.getElementById("anticorpB" + sufix).checked;
+
+  const rezultat = document.getElementById("rezultatGrupa" + sufix);
+  const explicatie = document.getElementById("explicatieGrupa" + sufix);
+
+  let grupa = "";
+  let detalii = "";
+
+  const antigene = [];
+  const anticorpi = [];
+
+  if (antigenA) antigene.push("A");
+  if (antigenB) antigene.push("B");
+  if (anticorpA) anticorpi.push("anti-A");
+  if (anticorpB) anticorpi.push("anti-B");
+
+  // Determinare grupă
+  if (antigenA && antigenB && !anticorpA && !anticorpB) {
+    grupa = "AB";
+  } else if (antigenA && !antigenB && !anticorpA && anticorpB) {
+    grupa = "A";
+  } else if (!antigenA && antigenB && anticorpA && !anticorpB) {
+    grupa = "B";
+  } else if (!antigenA && !antigenB && anticorpA && anticorpB) {
+    grupa = "0";
+  } else {
+    grupa = isRO ? "Combinare invalidă biologic" : "Invalid biological combination";
+  }
+
+  // Afișare feedback explicativ
+  if (isRO) {
+    detalii = `Ai ales: ${antigene.length ? "antigen" + (antigene.length > 1 ? "e " : " ") + antigene.join(" și ") : "niciun antigen"} pe hematii și ${anticorpi.length ? "anticorp" + (anticorpi.length > 1 ? "i " : " ") + anticorpi.join(" și ") : "niciun anticorp"} în plasmă.`;
+    rezultat.textContent = `Grupa sanguină determinată: ${grupa}`;
+    explicatie.textContent = detalii;
+  } else {
+    detalii = `You selected: ${antigene.length ? "antigen" + (antigene.length > 1 ? "s " : " ") + antigene.join(" and ") : "no antigens"} on red cells and ${anticorpi.length ? "antibod" + (anticorpi.length > 1 ? "ies " : "y ") + anticorpi.join(" and ") : "no antibodies"} in plasma.`;
+    rezultat.textContent = `Determined blood type: ${grupa}`;
+    explicatie.textContent = detalii;
+  }
+}
