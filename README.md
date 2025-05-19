@@ -92,7 +92,7 @@
   <img src="alcatuirea inimii.png" alt="Alcatuirea inimii">
   <br>
     <!-- Subtitlu -->
-<h3 class="text-ro">&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbspCirculația sângelui prin inimă (simulare video)</h3>
+<h3 class="text-ro">;Circulația sângelui prin inimă (simulare video)</h3>
 
 <!-- Paragraf explicativ  -->
 <p class="text-ro">
@@ -126,7 +126,7 @@
         <img src="heart.webp" alt="Heart">
 <br>
     <!-- Subtitlu bilingv -->
-<h3 class="text-en" style="display: none;">&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;Blood circulation through the heart (video simulation)</h3>
+<h3 class="text-en" style="display: none;">Blood circulation through the heart (video simulation)</h3>
       <!-- Paragraf explicativ bilingv -->
 <p class="text-en" style="display: none;">
   &nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbspThe heart pumps blood through two circuits: to the lungs for oxygenation and to the body to nourish the cells. This animation illustrates the path of blood through the heart.
