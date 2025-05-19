@@ -274,12 +274,10 @@
     <br>The smallest blood cells (200,000–400,000/mm³), live a few days. They help in clotting by forming clumps at the site of a broken vessel.
   </p>
 
-  <p class="text-en" ;">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Interstitial fluid, also called interstitial lymph, is found between cells and enables the exchange of substances that support metabolism. It forms at the level of capillaries when plasma passes into surrounding tissues.
+  Interstitial fluid, also called interstitial lymph, is found between cells and enables the exchange of substances that support metabolism. It forms at the level of capillaries when plasma passes into surrounding tissues.
   </p>
 
-  <p class="text-en" ;">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lymph, also known as white blood, forms from interstitial fluid when it enters lymphatic capillaries. It is yellowish-white in color and has a composition similar to blood but without red blood cells and with more white cells. It flows through <font color="purple">lymphatic vessels</font> which drain into veins. It differs from blood by the absence of erythrocytes.
+ Lymph, also known as white blood, forms from interstitial fluid when it enters lymphatic capillaries. It is yellowish-white in color and has a composition similar to blood but without red blood cells and with more white cells. It flows through <font color="purple">lymphatic vessels</font> which drain into veins. It differs from blood by the absence of erythrocytes.
   </p>
    <br>
       <!-- Imagine -->
