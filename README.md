@@ -43,7 +43,7 @@
     <!-- Secțiunea despre sistemul circulator -->
     <section id="despre">
      <!-- Titlu RO -->
- <h2 class="text-ro">&nbsp;&nbsp;&nbsp;&nbspCe este sistemul circulator?</h2> 
+ <h2 class="text-ro">Ce este sistemul circulator?</h2> 
     <!-- Paragraf română -->
  <p class="text-ro">
  &nbsp;&nbsp;&nbsp;&nbsp;Sistemul circulator este o componentă esențială a corpului uman, susținând viața și menținând echilibrul intern. Acest sistem asigură transportul continuu al substanțelor necesare funcției celulare, cum ar fi oxigenul și nutrienții, precum și eliminarea deșeurilor din procesele metabolice. Este necesar să se examineze în detaliu principalele componente ale sistemului circulator, cum ar fi inima, vasele de sânge și vasele limfatice, pentru a înțelege semnificația și modul în care funcționează. Abordăm subiecte precum funcția celulelor roșii din sânge, grupele de sânge și modul în care toate aceste componente lucrează împreună pentru a menține sănătatea și echilibrul corpului.
