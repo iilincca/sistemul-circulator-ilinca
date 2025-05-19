@@ -4,40 +4,169 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sistemul Circulator</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Reset simplu */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      padding-top: 60px; /* spațiu pentru navbar fix */
+      background-color: #fff;
+      color: #222;
+    }
+
+    /* Navbar full width fixată sus */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #b30000; /* roșu intens, modifică dacă vrei */
+      height: 60px;
+      display: flex;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      width: 100%;
+      justify-content: center; /* centrarea linkurilor */
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+      padding: 8px 12px;
+      transition: background-color 0.3s;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    nav ul li a:hover {
+      background-color: #7a0000;
+    }
+
+    /* Sectiuni cu padding si margin */
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem 20px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    section:last-child {
+      border-bottom: none;
+    }
+
+    section h2 {
+      margin-bottom: 1rem;
+      color: #b30000;
+    }
+
+    /* Imagini responsive */
+    section#imagini img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    /* Buton dark mode */
+    #darkModeBtn {
+      margin-top: 1rem;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #b30000;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    #darkModeBtn:hover {
+      background-color: #7a0000;
+    }
+
+    /* Dark mode */
+    body.dark-mode {
+      background-color: #121212;
+      color: #ddd;
+    }
+
+    body.dark-mode nav {
+      background-color: #660000;
+      box-shadow: none;
+    }
+
+    body.dark-mode #darkModeBtn {
+      background-color: #660000;
+    }
+
+    body.dark-mode #darkModeBtn:hover {
+      background-color: #440000;
+    }
+
+  </style>
 </head>
 <body>
-  <nav>
-    <ul class="navbar">
-      <li><a href="#acasa">Acasă</a></li>
-      <li><a href="#despre">Despre</a></li>
-      <li><a href="#organe">Organe</a></li>
-      <li><a href="#imagini">Imagini</a></li>
-    </ul>
-  </nav>
 
-  <section id="acasa" class="section">
-    <h1>Bine ai venit!</h1>
-    <p>Acesta este site-ul tău pe GitHub Pages.</p>
-    <button id="darkModeBtn">Activează modul întunecat</button>
-  </section>
+<nav>
+  <ul>
+    <li><a href="#acasa">Acasă</a></li>
+    <li><a href="#despre">Despre</a></li>
+    <li><a href="#organe">Organe</a></li>
+    <li><a href="#imagini">Imagini</a></li>
+  </ul>
+</nav>
 
-  <section id="despre" class="section">
-    <h2>Despre Sistemul Circulator</h2>
-    <p>Aici poți pune textul tău despre sistemul circulator.</p>
-  </section>
+<section id="acasa">
+  <h2>Bine ai venit!</h2>
+  <p>Acesta este site-ul tău pe GitHub Pages.</p>
+  <button id="darkModeBtn">Activează modul întunecat</button>
+</section>
 
-  <section id="organe" class="section">
-    <h2>Organe</h2>
-    <p>Descrierea organelor sistemului circulator.</p>
-  </section>
+<section id="despre">
+  <h2>Despre Sistemul Circulator</h2>
+  <p>Aici poți pune textul tău despre sistemul circulator.</p>
+</section>
 
-  <section id="imagini" class="section">
-    <h2>Imagini</h2>
-    <img src="img1.jpg" alt="Inima" />
-    <img src="img2.jpg" alt="Vase de sânge" />
-  </section>
+<section id="organe">
+  <h2>Organe</h2>
+  <p>Descrierea organelor sistemului circulator.</p>
+</section>
 
-  <script src="script.js" defer></script>
+<section id="imagini">
+  <h2>Imagini</h2>
+  <img src="images/img1.jpg" alt="Inima" />
+  <img src="images/img2.jpg" alt="Vase de sânge" />
+</section>
+
+<script>
+  const btn = document.getElementById('darkModeBtn');
+  btn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    btn.textContent = document.body.classList.contains('dark-mode')
+      ? 'Dezactivează modul întunecat'
+      : 'Activează modul întunecat';
+  });
+</script>
+
 </body>
 </html>
+
