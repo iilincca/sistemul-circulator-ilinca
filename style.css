@@ -22,33 +22,78 @@ body.dark-mode {
   color: #ddd;
 }
 
-/* Navbar full width, culori */
+/* Navbar fix, full width și culoare roșie */
 nav {
-  background-color: #007acc;
-  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-}
-
-.navbar {
+  height: 60px;
+  background-color: #b30000; /* roșu */
   display: flex;
+  align-items: center;
   justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  z-index: 9999;
+}
+
+nav ul {
   list-style: none;
+  display: flex;
+  gap: 40px;
 }
 
-.navbar li {
-  margin: 0 15px;
-}
-
-.navbar a {
-  text-decoration: none;
+nav ul li a {
   color: white;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 18px;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
-.navbar a:hover {
-  text-decoration: underline;
+nav ul li a:hover {
+  background-color: #7a0000;
 }
+
+/* Body să nu stea sub navbar fix */
+body {
+  padding-top: 60px; /* spațiu pentru navbar */
+  background-color: white;
+  color: #222;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Sectiuni clare */
+section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Dark mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #ddd;
+}
+
+body.dark-mode nav {
+  background-color: #660000;
+  box-shadow: none;
+}
+
+body.dark-mode nav ul li a:hover {
+  background-color: #330000;
+}
+
+body.dark-mode section {
+  border-color: #444;
+  background-color: #1e1e1e;
+}
+
 
 /* Sectiuni cu margini si padding */
 .section {
