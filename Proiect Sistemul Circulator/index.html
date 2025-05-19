@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sistemul Circulator</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Bine ai venit!</h1>
-  <button id="darkModeBtn">Activează modul întunecat</button>
+  <nav>
+    <ul class="navbar">
+      <li><a href="#acasa">Acasă</a></li>
+      <li><a href="#despre">Despre</a></li>
+      <li><a href="#organe">Organe</a></li>
+      <li><a href="#imagini">Imagini</a></li>
+    </ul>
+  </nav>
 
- <script src="script.js" defer></script>
+  <section id="acasa" class="section">
+    <h1>Bine ai venit!</h1>
+    <p>Acesta este site-ul tău pe GitHub Pages.</p>
+    <button id="darkModeBtn">Activează modul întunecat</button>
+  </section>
+
+  <section id="despre" class="section">
+    <h2>Despre Sistemul Circulator</h2>
+    <p>Aici poți pune textul tău despre sistemul circulator.</p>
+  </section>
+
+  <section id="organe" class="section">
+    <h2>Organe</h2>
+    <p>Descrierea organelor sistemului circulator.</p>
+  </section>
+
+  <section id="imagini" class="section">
+    <h2>Imagini</h2>
+    <img src="img1.jpg" alt="Inima" />
+    <img src="img2.jpg" alt="Vase de sânge" />
+  </section>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
