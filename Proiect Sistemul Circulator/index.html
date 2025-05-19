@@ -5,44 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sistemul Circulator</title>
   <style>
-    /* Reset simplu */
+    /* Reset */
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
-
     body {
       font-family: Arial, sans-serif;
-      line-height: 1.5;
-      padding-top: 60px; /* spațiu pentru navbar fix */
-      background-color: #fff;
+      background: #fff;
       color: #222;
+      padding-top: 60px; /* spațiu pentru navbar fix */
     }
 
-    /* Navbar full width fixată sus */
+    /* Navbar full width fix */
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100%;
-      background-color: #b30000; /* roșu intens, modifică dacă vrei */
+      background-color: #b30000;
       height: 60px;
       display: flex;
       align-items: center;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 10000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
 
     nav ul {
       list-style: none;
       display: flex;
       width: 100%;
-      justify-content: center; /* centrarea linkurilor */
+      justify-content: center;
     }
 
     nav ul li {
-      margin: 0 20px;
+      margin: 0 25px;
     }
 
     nav ul li a {
@@ -50,21 +45,20 @@
       text-decoration: none;
       font-weight: bold;
       font-size: 18px;
-      padding: 8px 12px;
-      transition: background-color 0.3s;
-      border-radius: 4px;
-      display: inline-block;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
     }
 
     nav ul li a:hover {
       background-color: #7a0000;
     }
 
-    /* Sectiuni cu padding si margin */
+    /* Sectiuni */
     section {
       max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem 20px;
+      margin: 40px auto;
+      padding: 20px;
       border-bottom: 1px solid #ccc;
     }
 
@@ -73,30 +67,29 @@
     }
 
     section h2 {
-      margin-bottom: 1rem;
+      margin-bottom: 15px;
       color: #b30000;
     }
 
-    /* Imagini responsive */
+    /* Imagini */
     section#imagini img {
       max-width: 100%;
-      height: auto;
-      margin-bottom: 1rem;
-      border-radius: 6px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
     }
 
     /* Buton dark mode */
     #darkModeBtn {
-      margin-top: 1rem;
-      padding: 10px 20px;
+      background-color: #b30000;
+      color: white;
+      border: none;
+      padding: 12px 20px;
       font-size: 16px;
       cursor: pointer;
-      background-color: #b30000;
-      border: none;
-      color: white;
-      border-radius: 4px;
-      transition: background-color 0.3s;
+      border-radius: 5px;
+      margin-top: 15px;
+      transition: background-color 0.3s ease;
     }
 
     #darkModeBtn:hover {
@@ -121,7 +114,6 @@
     body.dark-mode #darkModeBtn:hover {
       background-color: #440000;
     }
-
   </style>
 </head>
 <body>
