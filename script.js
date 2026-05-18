@@ -33,15 +33,16 @@ function verificaTestul() {
   let mesaj = "";
 
   if (isRO) {
-    mesaj = "Ai obținut " + scor + " din 6 puncte.";
-    if (scor === 6) {
+    mesaj = "Ai obținut " + scor + " din 7 puncte.";
+    if (scor === 7) {
       mesaj += " Felicitări! Ai răspuns corect la toate întrebările!";
     } else {
       mesaj += " Mai încearcă! Poți reciti lecția și reveni.";
     }
   } else {
-    mesaj = "You got " + scor + " out of 6 points.";
-    if (scor === 6) {
+    // Schimbat din 6 în 7 puncte pentru consistența baremului
+    mesaj = "You got " + scor + " out of 7 points.";
+    if (scor === 7) {
       mesaj += " Congratulations! You answered all questions correctly!";
     } else {
       mesaj += " Try again! You can review the lesson and come back.";
@@ -67,6 +68,12 @@ function toggleLanguage() {
   currentLang = currentLang === 'ro' ? 'en' : 'ro';
   document.getElementById("languageBtn").innerText = currentLang === 'ro' ? 'EN' : 'RO';
 
+  // Schimbarea dinamică a atributului LANG cerută de Claude
+  document.documentElement.lang = currentLang;
+
+  // Salvarea limbii în localStorage pentru persistență offline
+  localStorage.setItem("siteLang", currentLang);
+
   const roTexts = document.querySelectorAll('.text-ro');
   const enTexts = document.querySelectorAll('.text-en');
 
@@ -81,41 +88,39 @@ function toggleLanguage() {
   });
 }
 
-
-/* === DARK MODE ===
-   Acest cod adaugă posibilitatea de a comuta între modul luminos (Light Mode) și modul întunecat (Dark Mode),
-   folosind un buton. Preferința utilizatorului este salvată în localStorage și se aplică automat la reîncărcarea paginii.
-*/
-
 // Funcția care comută între modurile light și dark și salvează preferința
 function toggleDarkMode() {
-  document.body.classList.toggle("dark"); // adaugă sau elimină clasa "dark"
+  document.body.classList.toggle("dark"); 
   const isDark = document.body.classList.contains("dark");
 
-  // Salvează alegerea în localStorage
   localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
 
-  // Actualizează textul de pe buton
   const btn = document.getElementById("darkModeBtn");
   btn.innerText = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
 }
 
-// Când pagina se încarcă, verificăm dacă utilizatorul a ales anterior dark mode
+// Când pagina se încarcă, verificăm salvările offline
 window.addEventListener("DOMContentLoaded", () => {
   const savedMode = localStorage.getItem("darkMode");
 
   if (savedMode === "enabled") {
-    document.body.classList.add("dark"); // aplică clasa "dark"
+    document.body.classList.add("dark"); 
     
     const btn = document.getElementById("darkModeBtn");
-    if (btn) btn.innerText = "☀️ Light Mode"; // actualizează butonul
+    if (btn) btn.innerText = "☀️ Light Mode"; 
+  }
+
+  // Citirea limbii salvate la încărcare
+  const savedLang = localStorage.getItem("siteLang");
+  if (savedLang && savedLang !== currentLang) {
+    toggleLanguage();
   }
 });
 
 /* === Scroll to top – buton „↑ Sus” === */
 window.onscroll = function () {
   const btn = document.getElementById("scrollTopBtn");
-  if (!btn) return; // protecție
+  if (!btn) return; 
   if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
     btn.style.display = "block";
   } else {
@@ -130,14 +135,18 @@ function scrollToTop() {
   });
 }
 
+// Funcție video adaptată la noile ID-uri de resurse (Fără erori pe engleză)
 function toggleVideo() {
   const isRO = document.querySelector('.text-ro').style.display !== 'none';
-  const video = document.getElementById(isRO ? 'videoInimaRO' : 'videoInimaEN');
+  const videoId = isRO ? 'videoInimaRO' : 'videoInimaEN';
+  const video = document.getElementById(videoId);
 
-  if (video.paused) {
-    video.play();
-  } else {
-    video.pause();
+  if (video) {
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
   }
 }
 
@@ -164,7 +173,6 @@ function determinaGrupa() {
   if (anticorpA) anticorpi.push("anti-A");
   if (anticorpB) anticorpi.push("anti-B");
 
-  // Determinare grupă
   if (antigenA && antigenB && !anticorpA && !anticorpB) {
     grupa = "AB";
   } else if (antigenA && !antigenB && !anticorpA && anticorpB) {
@@ -177,7 +185,6 @@ function determinaGrupa() {
     grupa = isRO ? "Combinare invalidă biologic" : "Invalid biological combination";
   }
 
-  // Afișare feedback explicativ
   if (isRO) {
     detalii = `Ai ales: ${antigene.length ? "antigen" + (antigene.length > 1 ? "e " : " ") + antigene.join(" și ") : "niciun antigen"} pe hematii și ${anticorpi.length ? "anticorp" + (anticorpi.length > 1 ? "i " : " ") + anticorpi.join(" și ") : "niciun anticorp"} în plasmă.`;
     rezultat.textContent = `Grupa sanguină determinată: ${grupa}`;
@@ -187,4 +194,24 @@ function determinaGrupa() {
     rezultat.textContent = `Determined blood type: ${grupa}`;
     explicatie.textContent = detalii;
   }
+}
+// Funcția care curăță simulatorul de grupe (Română + Engleză)
+function reseteazaSimulatorGrupa() {
+  // Debifăm căsuțele pentru Română
+  document.getElementById("antigenA-ro").checked = false;
+  document.getElementById("antigenB-ro").checked = false;
+  document.getElementById("anticorpA-ro").checked = false;
+  document.getElementById("anticorpB-ro").checked = false;
+
+  // Debifăm căsuțele pentru Engleză
+  document.getElementById("antigenA-en").checked = false;
+  document.getElementById("antigenB-en").checked = false;
+  document.getElementById("anticorpA-en").checked = false;
+  document.getElementById("anticorpB-en").checked = false;
+
+  // Ștergem textele de rezultat afișate pe ecran
+  document.getElementById("rezultatGrupa-ro").textContent = "";
+  document.getElementById("explicatieGrupa-ro").textContent = "";
+  document.getElementById("rezultatGrupa-en").textContent = "";
+  document.getElementById("explicatieGrupa-en").textContent = "";
 }

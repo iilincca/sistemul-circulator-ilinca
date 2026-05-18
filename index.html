@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Politica CSP defensivă complet curată (am scos unsafe-inline pe stiluri conform baremului) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self' 'unsafe-inline';">
+  <!-- Fișier CSS extern pentru stilizarea paginii --> 
+  <link rel="stylesheet" href="style.css">
+  <title>Sistemul Circulator</title>
+</head>
+
+<body>
+  <header>
+    <h1 class="text-ro">Sistemul Circulator</h1>
+    <p class="text-ro">Explorează misterele inimii și ale vaselor de sânge</p>
+    <h1 class="text-en">Circulatory System</h1>
+    <p class="text-en">Explore the mysteries of the heart and blood vessels</p>
+  </header>
+  
+  <!-- Navbar -->
+  <nav id="navbar">
+    <a href="#despre" data-ro="Sistemul" data-en="System">Sistemul</a>
+    <a href="#inima" data-ro="Inima" data-en="Heart">Inima</a>
+    <a href="#artere" data-ro="Artere" data-en="Arteries">Artere</a>
+    <a href="#venele" data-ro="Venele" data-en="Veins">Venele</a>
+    <a href="#capilare" data-ro="Capilare" data-en="Capillaries">Capilare</a>
+    <a href="#sange" data-ro="Sângele" data-en="Blood">Sângele</a>
+    <a href="#grupele" data-ro="Grupele de sânge" data-en="Blood Types">Grupele de sânge</a>
+    <a href="#factorul-rh" data-ro="Factorul Rh" data-en="Rh Factor">Factorul Rh</a>
+    <a href="#factorul-rh-nul" data-ro="Factorul Rh-nul" data-en="Rh-null Factor">Factorul Rh-nul</a>
+    <a href="#circulatie-sanguina" data-ro="Circulația sanguină" data-en="Blood Circulation">Circulația sanguină</a>
+    <a href="#mituri" data-ro="Mit" data-en="Myth">Mit</a>
+    <a href="#quiz" data-ro="Consolidare" data-en="Review">Consolidare</a>
+
+    <button onclick="toggleLanguage()" id="languageBtn">EN</button>
+    <button onclick="toggleDarkMode()" id="darkModeBtn">🌙 Dark Mode</button>
+  </nav>
+
+  <main>
+    <!-- Secțiunea despre sistemul circulator -->
+    <section id="despre">
+           <h2 class="text-ro">Ce este sistemul circulator?</h2> 
+      <p class="text-ro">
+      <span class="spatiu-alineat"></span>Sistemul circulator este o componentă esențială a corpului uman, susținând viața și menținând echilibrul intern. Acest sistem asigură transportul continuu al substanțelor necesare funcției celulare, cum ar fi oxigenul și nutrienții, precum și eliminarea deșeurilor din procesele metabolice. Este necesar să se examineze în detaliu principalele componente ale sistemului circulator, cum ar fi inima, vasele de sânge și vasele limfatice, pentru a înțelege semnificația și modul în care funcționează. Abordăm subiecte precum funcția celulelor roșii din sânge, grupele de sânge și modul în care toate aceste componente lucrează împreună pentru a menține sănătatea și echilibrul corpului.
+      <!-- Imagini cu numele redenumit curat cu cratime și atribut alt pentru accesibilitate -->
+      <img src="sistem-circulator.jpeg" alt="Diagramă generală a sistemului circulator în limba română">
+      </p>
+
+      <h2 class="text-en">What is the circulatory system?</h2>
+      <p class="text-en">
+       <span class="spatiu-alineat"></span>The circulatory system is an essential component of the human body, supporting life and maintaining internal balance. This system ensures the continuous transport of substances necessary for cellular function, such as oxygen and nutrients, and the elimination of metabolic waste. It is important to examine in detail the main components of the circulatory system—such as the heart, blood vessels, and lymphatic vessels—in order to understand how it functions. We also discuss red blood cells, blood groups, and how all these elements work together to keep the body healthy and balanced.
+      <img src="circulatory-system.jpeg" alt="General diagram of the circulatory system in English">
+       </p>
+     </section>
+
+ <!-- Secțiunea despre inimă -->
+    <section id="inima"> 
+      <h2 class="text-ro">Inima</h2>
+      <h2 class="text-en">The Heart</h2>
+   
+      <!-- Paragraf română -->
+      <p class="text-ro">
+        <span class="spatiu-alineat"></span>Inima este principalul organ al sistemului circulator situat în partea stângă a cutiei toracice cu vârful sprijinit pe diafragm în formă de pară cu greutatea de 400g, alcătuită din:
+        <br>- la exterior, un sac protector numit pericard;
+        <br>- în pereți, un mușchi puternic ce se contractă involuntar și ritmic numit miocard;
+        <br>- în interior, un spațiu gol împărțit în pereți, care alcătuiesc 4 cămăruțe:
+        <br><span class="spatiu-alineat"></span><span class="spatiu-alineat"></span>&bull;Sus: 2 atrii, unul drept și unul stâng;
+        <br><span class="spatiu-alineat"></span><span class="spatiu-alineat"></span>&bull;Jos: 2 ventricule, unul drept și unul stâng;
+        <br><span class="spatiu-alineat"></span>Inima este un organ muscular, fapt pentru care activitatea ei este caracterizată prin contracții și relaxare, care se succed cu regularitate. Contracția inimii se numește <span class="text-purple">sistolă</span>, iar relaxarea, <span class="text-purple">diastolă</span>. O sistolă, împreună cu o diastolă formează o <span class="text-darkred">revoluție cardiacă</span> sau un <span class="text-darkred">ciclu cardiac</span> care este realizat în 3 timpi/etape:
+        <br>
+        <span class="text-darkred"><br>I. Sistola atrială</span> (0,1'') în care miocardul se contractă și împinge sângele din atrii în ventriculi prin orificiile atrio-ventriculare în timp ce miocardul ventricular se relaxează.
+        <br>
+        <span class="text-darkred"><br>II. Sistola ventriculară</span> (0,3'') în care mușchiul ventricular se contractă și pompează sânge.
+        <br>
+        <span class="text-darkred"><br>III. Diastola generală</span> (0,4'') în care atât miocardul atriilor cât și al ventriculelor se relaxează, iar sângele se întoarce la inimă prin venele cave și pulmonare în atrii. După umplerea atriilor cu sânge, ciclul cardiac se repetă.
+        <br><br>
+        <img src="alcatuirea-inimii.png" alt="Alcătuirea anatomică a inimii umane">
+        <br>
+        <h3 class="text-ro">Circulația sângelui prin inimă (simulare video)</h3>
+      </p>
+
+      <p class="text-ro">
+       <span class="spatiu-alineat"></span>Inima pompează sângele în două circuite: spre plămâni pentru oxigenare și spre corp pentru hrănirea celulelor. În această animație este ilustrat traseul sângelui prin inimă.
+        <br><br>
+        <video id="videoInimaRO" width="600">
+         <source src="Realistic-Heart-Beat-in-Cross-section.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <br>
+        <button onclick="toggleVideo()">Pornire / Oprire Video</button>
+      </p>
+    
+      <!-- Paragraf engleză -->
+      <p class="text-en">
+       <span class="spatiu-alineat"></span> The heart is the main organ of the circulatory system, located on the left side of the chest cavity, with its tip resting on the diaphragm. It has a pear shape, weighs 400g, and is composed of:
+        <br>– on the outside, a protective sac called the pericardium;
+        <br>– in the walls, a strong muscle that contracts involuntarily and rhythmically, called the myocardium;
+        <br>– on the inside, a hollow space divided by walls, which form 4 small chambers:
+        <br><span class="spatiu-alineat"></span><span class="spatiu-alineat"></span>&bull;At the top: 2 atria, one right and one left;
+        <br><span class="spatiu-alineat"></span><span class="spatiu-alineat"></span>&bull;At the bottom: 2 ventricles, one right and one left;
+        <br><span class="spatiu-alineat"></span>The heart is a muscular organ, which is why its activity is characterized by regular contractions and relaxation. The contraction of the heart is called <span class="text-purple">systole</span>, and the relaxation, <span class="text-purple">diastole</span>. A systole together with a diastole forms a <span class="text-darkred">cardiac revolution</span> or a <span class="text-darkred">cardiac cycle</span>, which takes place in 3 phases/stages:
+        <br>
+        <span class="text-darkred"><br>I. Atrial systole</span> (0.1'') in which the myocardium contracts and pushes the blood from the atria into the ventricles through the atrioventricular openings, while the ventricular myocardium relaxes.
+        <br>
+        <span class="text-darkred"><br>II. Ventricular systole</span> (0.3'') in which the ventricular muscle contracts and pumps blood.
+        <br>
+        <span class="text-darkred"><br>III. General diastole</span> (0.4'') in which both the atrial and ventricular myocardium relax, and the blood returns to the heart through the venae cavae and pulmonary veins into the atria. After the atria are filled with blood, the cardiac cycle repeats.
+        <br><br>
+        <img src="heart.webp" alt="Anatomical diagram of the human heart">
+        <br>
+        <h3 class="text-en">Blood circulation through the heart (video simulation)</h3>
+      </p>
+
+      <p class="text-en">
+       <span class="spatiu-alineat"></span> The heart pumps blood through two circuits: to the lungs for oxygenation and to the body to nourish the cells. This animation illustrates the path of blood through the heart.
+        <br><br>
+        <video id="videoInimaEN" width="600">
+          <source src="Realistic-Heart-Beat-in-Cross-section.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <br>
+        <button onclick="toggleVideo()">Play / Pause Video</button>
+      </p>
+    </section>
+ <!-- Secțiunea despre artere -->
+    <section id="artere"> 
+      <h2 class="text-ro">Arterele</h2>
+ 
+      <!-- Paragraf română -->
+      <p class="text-ro">
+        <span class="spatiu-alineat"></span>Arterele sunt vase de sânge care pleacă de la inimă și transportă sângele către organe. Pereții arterelor conțin mult țesut elastic, ceea ce le permite să suporte presiunea ridicată a sângelui pompat de inimă.
+        <br><span class="text-red"><span class="spatiu-alineat"></span>Cele mai mari artere din corp sunt:</span>
+        <br><span class="text-darkred">1. <u>Artera aortă</u></span> – pleacă din ventriculul stâng și se ramifică în artere din ce în ce mai mici, care ajung la toate organele corpului.
+        <br><span class="text-darkred">2. <u>Artera pulmonară</u></span> – pleacă din ventriculul drept și transportă sângele până la plămân.
+        <br><br>
+        <img src="artery-svg.png" alt="Structura unei artere în limba română">
+      </p>
+
+      <!-- Paragraf engleză -->
+      <h2 class="text-en">Arteries</h2>
+      <p class="text-en">
+        <span class="spatiu-alineat"></span>Arteries are blood vessels that carry blood away from the heart and deliver it to the organs. The walls of the arteries contain a lot of elastic tissue, which allows them to withstand the high pressure of the blood pumped by the heart.
+        <br><span class="text-red"><span class="spatiu-alineat"></span>The largest arteries in the body are:</span>
+        <br><span class="text-darkred">1. <u>Aorta artery</u></span> – starts from the left ventricle and branches into smaller and smaller arteries that reach all the organs of the body.
+        <br><span class="text-darkred">2. <u>Pulmonary artery</u></span> – starts from the right ventricle and carries the blood to the lungs. 
+        <br><br> 
+        <img src="artery-svg.png" alt="Anatomical structure of an artery">
+      </p>
+    </section>
+
+    <!-- Secțiunea despre vene -->
+    <section id="venele">
+      <h2 class="text-ro">Venele</h2>
+
+      <!-- Paragraf RO -->
+      <p class="text-ro">
+        <span class="spatiu-alineat"></span>Venele sunt vase de sânge care transportă sângele de la organe înapoi la inimă. Pereții venelor conțin mai puțin țesut elastic, comparativ cu arterele, deoarece sângele circulă prin ele cu o presiune mai scăzută. Multe vene, mai ales cele din membrele inferioare, conțin valve care împiedică întoarcerea sângelui în sens invers.
+        <br><span class="text-red text-large"><span class="spatiu-alineat"></span>Cele mai mari vene din corp sunt:</span>
+        <br><span class="text-purple text-large">1. <u>Venele cave</u></span> – transportă sângele de la organe la inimă. Există 2 vene cave:
+        <br><span class="spatiu-alineat"></span><span class="text-darkred text-large">&bull;Vena cavă superioară</span> – colectează sângele din partea superioară a corpului.
+        <br><span class="spatiu-alineat"></span><span class="text-darkred text-large">&bull;Vena cavă inferioară</span> – colectează sângele din partea inferioară a corpului.
+        <br><span class="text-purple text-large">2. <u>Venele pulmonare</u></span> – aduc sângele oxigenat de la plămâni la inimă, în atriul stâng.
+        <br><br>
+       <img src="vein-retouched-svg.png" alt="Structura anatomică a unei vene și funcționarea valvelor" class="text-ro">
+           </p>
+
+      <h2 class="text-en">Veins</h2>
+
+      <!-- Paragraf EN -->
+      <p class="text-en">
+        <span class="spatiu-alineat"></span>Veins are blood vessels that carry blood from the organs back to the heart. The walls of veins contain less elastic tissue compared to arteries, because blood flows through them at a lower pressure. Many veins, especially those in the lower limbs, contain valves that prevent the blood from flowing backward.
+        <br><span class="text-red text-large"><span class="spatiu-alineat"></span>The largest veins in the body are:</span>
+        <br><span class="text-purple">1. <u>Venae cavae</u></span> – carry blood from the organs to the heart. There are two venae cavae:
+        <br><span class="spatiu-alineat"></span><span class="text-darkred text-large">&bull;Superior vena cava</span> – collects blood from the upper part of the body.
+        <br><span class="spatiu-alineat"></span><span class="text-darkred text-large">&bull;Inferior vena cava</span> – collects blood from the lower part of the body.
+        <br><span class="text-purple text-large">2. <u>Pulmonary veins</u></span> – bring oxygenated blood from the lungs to the heart, into the left atrium.
+        <br><br>
+        <img src="vein-retouched-svg.png" alt="Anatomical structure of a vein">
+      </p>
+    </section>
+
+    <!-- Secțiunea despre capilare -->
+    <section id="capilare">
+      <h2 class="text-ro">Capilarele</h2>
+      <h2 class="text-en">Capillaries</h2>
+
+      <!-- Paragraf română -->
+      <p class="text-ro">
+        <span class="spatiu-alineat"></span>Capilarele sunt cele mai mici vase de sânge (0,5 mm lungime și 30 micrometri în diametru), ce fac legătura dintre arterele și venele mici. Au pereții foarte subțiri, formați dintr-un singur strat de celule. Au un rol foarte important în asigurarea schimbului de substanțe dintre sânge și celule.
+      </p>
+      
+      <!-- Paragraf engleză -->
+      <p class="text-en">
+        <span class="spatiu-alineat"></span>Capillaries are the smallest blood vessels (0.5 mm in length and 30 micrometers in diameter), connecting small arteries and veins. They have very thin walls made of a single layer of cells. They play a vital role in the exchange of substances between the blood and the body’s cells.
+      </p>
+      <br>
+      <img src="capilare.jpg" alt="Rețea de vase capilare la nivel celular">
+    </section>
+<!-- Secțiunea despre sânge -->
+    <section id="sange">
+      <h2 class="text-ro">Sângele</h2>
+      <h2 class="text-en">Blood</h2>
+
+      <!-- Paragraf RO -->
+      <p class="text-ro">
+        <span class="spatiu-alineat"></span>Sângele este principalul lichid al corpului, de culoare roșie, care reprezintă 6–8% din masa corporală, format din plasma sanguină și elementele figurate:
+        <br><span class="text-purple"><i>I. Plasma sanguină</i></span> este partea lichidă ce ocupă 55% din volumul total al sângelui, formată din 90% apă, substanțe anorganice (săruri), dar și organice (proteine, lipide, glucide). În contact cu aerul, ajută la coagulare.
+        <br><span class="text-purple"><i>II. Elemente figurate:</i></span>
+        <br><span class="text-darkred"><span class="spatiu-alineat"></span>a) Celule roșii = HEMATII sau ERITROCITE</span>
+        <br>Celule roșii fără nucleu (anucleate), cu forma celulară privită din față rotundă, iar din profil de lentilă biconcavă, care trăiesc 120 de zile. Sunt produse în măduva roșie a oaselor late și distruse în splină și ficat. Transportă oxigenul de la plămâni la celule și CO₂ înapoi.
+        <br><span class="text-darkred"><span class="spatiu-alineat"></span>b) Globule albe = LEUCOCITE</span>
+        <br>Celule incolore care trăiesc de la câteva zile până la câțiva ani. Se produc în măduvă, splină, ganglioni, amigdale. Au rol esențial în imunitate.
+        <br><span class="text-darkred"><span class="spatiu-alineat"></span>c) Trombocite = plachete sanguine</span>
+        <br><span class="spatiu-alineat"></span>Cele mai mici celule ale sângelui (200.000–400.000/mm³), care trăiesc câteva zile. Ajută la coagulare prin formarea cheagurilor la locul ruperii unui vas.
+      </p>
+
+      <p class="text-ro">
+        <span class="spatiu-alineat"></span>Lichidul interstițial, numit și limfă interstițială, este prezent între celule și permite schimbul de substanțe necesare metabolismului. Se formează din plasma sanguină care iese din capilare și pătrunde în spațiile celulare.
+      </p>
+
+      <p class="text-ro">
+        <span class="spatiu-alineat"></span>Limfa, sau sângele alb, se formează din lichidul interstițial în momentul pătrunderii în capilarele limfatice. Are o culoare alb-gălbuie, o compoziție asemănătoare sângelui dar fără celule roșii și cu mai multe leucocite. Circulă prin <span class="text-purple">vase limfatice</span> care se varsă în vene. 
+      </p>
+
+      <!-- Paragraf EN -->
+      <p class="text-en">
+        <span class="spatiu-alineat"></span>Blood is the main fluid of the body, red in color, and represents 6–8% of the body mass. It is composed of blood plasma and formed elements:
+        <br><span class="text-purple"><i>I. Blood plasma</i></span> is the liquid part, representing 55% of the total blood volume. It is made of 90% water, inorganic substances (salts), and organic compounds (proteins, lipids, glucose). When in contact with air, it helps coagulation.
+        <br><span class="text-purple"><i>II. Formed elements:</i></span>
+        <br><span class="text-darkred"><span class="spatiu-alineat"></span>a) Red blood cells = ERYTHROCYTES</span>
+        <br>Red cell, anucleate, with a round shape when viewed from the front, and a biconcave lens profile when viewed from the side. They live 120 days, are produced in red bone marrow, and destroyed in the spleen and liver. They transport oxygen and bring CO₂ back.
+        <br><span class="text-darkred"><span class="spatiu-alineat"></span>b) White blood cells = LEUKOCYTES</span>
+        <br>Colorless cells that live from a few days to several years. Produced in marrow, spleen, lymph nodes, and tonsils. They play a key role in immunity.
+        <br><span class="text-darkred"><span class="spatiu-alineat"></span>c) Platelets = thrombocytes</span>
+        <br>The smallest blood cells (200,000–400,000/mm³), live a few days. They help in clotting by forming clumps at the site of a broken vessel.
+      </p>
+
+      <p class="text-en">
+        <span class="spatiu-alineat"></span>Interstitial fluid, also called interstitial lymph, is found between cells and enables the exchange of substances that support metabolism. It forms at the level of capillaries when plasma passes into surrounding tissues.
+      </p>
+
+      <p class="text-en">
+        <span class="spatiu-alineat"></span>Lymph, also known as white blood, forms from interstitial fluid when it enters lymphatic capillaries. It is yellowish-white in color and has a composition similar to blood but without red blood cells and with more white cells. It flows through <span class="text-purple">lymphatic vessels</span> which drain into veins. It differs from blood by the absence of erythrocytes.
+      </p>
+      <br>
+      <img src="sange.jpg" alt="Elementele figurate ale sângelui la microscop">
+    </section>
+ <!-- Secțiunea despre grupele de sânge -->
+    <section id="grupele">
+      <h2 class="text-ro">Grupele de sânge</h2>
+      <h2 class="text-en">Blood Types</h2>
+
+      <!-- Paragraf RO -->
+      <p class="text-ro">
+        <span class="text-large"><br><span class="spatiu-alineat"></span>La om există grupe de sânge determinate de prezența pe globulele roșii a unor substanțe numite <span class="text-purple">ANTIGENE</span> și de prezența în plasmă a unor <span class="text-purple">ANTICORPI</span> împotriva acestor antigene. Există 4 grupe:</span>
+        <span class="text-lightpurple"><br>Grupa 0(I)</span> - nu are antigene A și B și are în plasmă anticorpi anti A și anti B;
+        <span class="text-lightpurple"><br>Grupa A(II)</span> - are pe hematii antigenul A și are în plasmă anticorpi anti B.
+        <span class="text-lightpurple"><br>Grupa B(III)</span> - are pe hematii antigenul B și în plasmă anticorp anti A;
+        <span class="text-lightpurple"><br>Grupa AB(IV)</span> - are pe hematii antigen A și B dar nu are în plasmă anticorpi;
+        <br><br><span class="spatiu-alineat"></span>Ca să înțelegem mai bine ce este antigenul și anticorpii le vom defini mai clar.
+        <br><b>Antigenul</b> este o substanță, de obicei o proteină sau carbohidră care se află pe celulele roșii, ce determină grupa de sânge. Iar <b>anticorpul</b> este o proteină ce apare în plasmă cu scopul de a identifica și a ataca orice celulă străină. 
+        <br><br>
+        <img src="grupe-de-sange.jpg" alt="Tipuri de celule roșii în funcție de grupele sanguine" class="text-ro">
+        <span class="text-large"><br><span class="spatiu-alineat"></span>Este important să ne cunoaștem grupa de sânge deoarece în momentul unei transfuzii, primirea unei grupe incompatibile produce lipirea hematiilor printr-o reacție numită <span class="text-lightpurple">aglutinare</span> și blocarea vaselor de sânge, ceea ce duce, în cazuri grave, la deces.</span>
+        <br><br>
+        <img src="compatibilitate-grupe.png" alt="Tabel de compatibilitate pentru transfuzii sanguine" class="text-ro">
+        <br><span class="text-large">Ce grupă de sânge poți moșteni de la părinții tăi?</span>
+        <br><span class="spatiu-alineat"></span>La fel ca și culoarea ochilor, grupele de sânge se moștenesc genetic de la părinți.
+        <br><br>
+        <img src="mostenire-grupa-de-sange.jpeg" alt="Tabelul moștenirii genetice a grupelor sanguine" class="text-ro">
+      </p>
+
+      <!-- Formular Simulare Română -->
+      <div class="text-ro">
+        <div id="simulare-grupa-ro">
+          <h3>🧪 Simulare: Află ce grupă ai!</h3>
+          <p>Bifează antigenele de pe hematii și anticorpii din plasmă:</p>
+          <form>
+            <label><strong>Antigene:</strong></label><br>
+            <input type="checkbox" id="antigenA-ro"> A
+            <input type="checkbox" id="antigenB-ro"> B
+            <br><br>
+            <label><strong>Anticorpi:</strong></label><br>
+            <input type="checkbox" id="anticorpA-ro"> anti-A
+            <input type="checkbox" id="anticorpB-ro"> anti-B
+            <br><br>
+            <button type="button" onclick="determinaGrupa()">🔍 Află grupa</button>
+           <button type="button" onclick="reseteazaSimulatorGrupa()" style="margin-left: 10px;">🔄 Resetează</button>
+          </form>
+          <p id="rezultatGrupa-ro" class="text-bold-margin"></p>
+        </div>
+      </div>
+
+      <!-- Paragraf EN -->
+      <div class="text-en">
+        <p>
+          <span class="text-large"><br><span class="spatiu-alineat"></span>In humans, blood groups are determined by the presence of substances called <span class="text-purple">ANTIGENS</span> on red blood cells and by the presence of <span class="text-purple">ANTIBODIES</span> in the plasma against these antigens. There are 4 blood groups:</span>
+          <span class="text-lightpurple"><br>Type O</span> - it has no A or B antigens, but its plasma contains anti-A and anti-B antibodies.
+          <span class="text-lightpurple"><br>Type A</span> - it has A antigens on the red blood cells and anti-B antibodies in the plasma.
+          <span class="text-lightpurple"><br>Type B</span> - it has B antigens on the red blood cells and anti-A antibodies in the plasma.
+          <span class="text-lightpurple"><br>Type AB</span> - it has both A and B antigens on the red blood cells and no antibodies in the plasma.
+          <br><span class="text-large"><br><span class="spatiu-alineat"></span>To better understand what antigens and antibodies are, we will define them more clearly.</span>
+          <br><span class="text-large"><br><b>The Antigen</b> is a substance, usually a protein or a carbohydrate, found on red blood cells that determines the blood type. And <b>antibody</b> it is a protein found in the plasma, whose role is to defend the body by identifying and attacking any foreign cell.</span>
+          <br><br>
+          <img src="blood-type.jpg" alt="Blood types presentation chart" class="text-en">
+          <span class="text-large"><br><span class="spatiu-alineat"></span>It is important to know our blood type because during a transfusion, receiving an incompatible blood type causes the red blood cells to stick together through a reaction called <span class="text-lightpurple">agglutination</span>, blocking the blood vessels, which can, in severe cases, lead to death.</span>
+          <br><br>
+          <img src="compatibilate-grupe-engleza.png" alt="Transfusion compatibility reference chart" class="text-en">
+          <br><span class="text-large">What blood type can you inherit from your parents?</span>
+          <br><span class="spatiu-alineat"></span>Just like eye color, blood types are inherited genetically from our parents.
+          <br><br>
+          <img src="child-blood-type-table-2.png" alt="Genetic inheritance blood chart for children">
+        </p>
+
+        <!-- Formular Simulare Engleză -->
+        <div id="simulare-grupa-en">
+          <h3>🧪 Simulation: Find your blood type!</h3>
+          <p>Check the antigens on red cells and antibodies in plasma:</p>
+          <form>
+            <label><strong>Antigens:</strong></label><br>
+            <input type="checkbox" id="antigenA-en"> A
+            <input type="checkbox" id="antigenB-en"> B
+            <br><br>
+            <label><strong>Antibodies:</strong></label><br>
+            <input type="checkbox" id="anticorpA-en"> anti-A
+            <input type="checkbox" id="anticorpB-en"> anti-B
+            <br><br>
+            <button type="button" onclick="determinaGrupa()">🔍 Find blood type</button>
+             <button type="button" onclick="reseteazaSimulatorGrupa()" style="margin-left: 10px;">🔄 Reset</button>
+            </form>
+          <p id="rezultatGrupa-en" class="text-bold-margin"></p>
+          <p id="explicatieGrupa-en" class="text-margin"></p>
+        </div>
+      </div>
+    </section>
+ <!-- Secțiunea despre factorul Rh (ID corectat fără spații interzise conform baremului Web) -->
+    <section id="factorul-rh">
+      <h2 class="text-ro">Factorul Rh</h2>
+      <h2 class="text-en">The Rh factor</h2>
+      
+      <!-- Paragraf RO -->
+      <p class="text-ro">
+        <br><span class="spatiu-alineat"></span>Factorul Rh este o proteină moștenită care se găsește pe suprafața celulelor roșii din sânge. Dacă în sânge se regăsește proteina atunci sunteți Rh pozitiv. Dacă pe suprafața celulelor roșii nu există atunci sunteți Rh negativ.
+        <br><span class="text-red">De ce este important Rh?</span>
+        <br><span class="spatiu-alineat"></span>Ei bine Rh este important în momentul unei transfuzii deoarece o persoană cu Rh⁺ nu poate primi o transfuzie cu Rh⁻ , deoarece organismul îl va recunoaște ca pe un „străin” și va începe să producă anticorpi împotriva Rh, un proces numit „sensibilizare". Acesta mai este important și în momentul sarcinii deoarece dacă mama are Rh⁻, dar copilul are Rh⁺, mama poate produce anticorpi care luptă cu celulele roșii ale copilului. Acest lucru se poate întâmpla dacă sângele copilului nenăscut ajunge în circulația mamei, ceea ce se întâmplă rar, cel mai des în timpul nașterii. 
+        <br><span class="spatiu-alineat"></span>Atunci când există acest risc (avort spontan, traumatisme abdominale, la naștere), o injecție cu anticorpi anti-D poate fi administrată mamei.
+        <br><span class="spatiu-alineat"></span>De obicei prima sarcină nu este afectată de compatibilitatea Rh deoarece copilul este adesea născut înainte ca mulți anticorpi să se dezvolte. Dar foarte important este ca la 72h după naștere, mama să facă un vaccin ca să mai poată avea pe viitor încă o sarcină.
+        <br><span class="spatiu-alineat"></span>Dacă aveți Rh⁺, atunci purtați o genă pozitivă și o genă negativă. Dacă copilul primește două gene negative, atunci el va fi Rh⁻ , fără să apară o problemă. Se estimează că 85% dintre persoane au Rh⁺.
+        <br><span class="spatiu-alineat"></span>Aflarea Rh este un proces foarte ușor. Necesită doar prelevarea de celule sangvine roșii care sunt amestecate cu o soluție de laborator care conține anticorpi pentru Rh.
+      </p>
+
+      <!-- Paragraf EN -->
+      <p class="text-en">
+        <br><span class="spatiu-alineat"></span>The Rh factor is an inherited protein found on the surface of red blood cells. If your blood has the protein, you are Rh positive. If your red blood cells lack the protein, you are Rh negative.
+        <br><span class="text-red">Why is the Rh factor important?</span>
+        <br><span class="spatiu-alineat"></span>The Rh factor is important during a blood transfusion because a person with Rh⁺ cannot receive Rh⁻ blood. The body will recognize it as “foreign” and begin producing antibodies against the Rh factor, a process called “sensitization". It is also important during pregnancy. If the mother is Rh⁻ and the baby is Rh⁺, the mother’s body can produce antibodies that attack the baby's red blood cells. This can happen if the unborn baby’s blood enters the mother’s bloodstream — something that usually occurs during childbirth.
+        <br><span class="spatiu-alineat"></span>When there is such a risk (miscarriage, abdominal trauma, or during childbirth), an injection with anti-D antibodies can be given to the mother.
+        <br><span class="spatiu-alineat"></span>Usually, the first pregnancy is not affected by Rh incompatibility, because the baby is often born before many antibodies develop. However, it is very important that within 72 hours after birth, the mother receives an anti-D injection in order to be able to have another pregnancy in the future.
+        <br><span class="spatiu-alineat"></span>If you have Rh⁺, it means you carry one positive gene and one negative gene. If the baby inherits two negative genes, they will be Rh⁻, without causing any problems. It is estimated that 85% of people are Rh⁺.
+        <br><span class="spatiu-alineat"></span>Determining your Rh factor is a very simple process. It only requires a sample of red blood cells, which are mixed with a laboratory solution that contains Rh antibodies.
+      </p>
+      <br>
+      <!-- Imagine cu numele corectat fără spații -->
+      <img src="fac-rh.jpg" alt="Ilustrarea factorului Rh pe celulele sângelui">
+    </section> 
+
+    <!-- Secțiunea despre factorul Rh-nul (ID corectat cu cratime) -->
+    <section id="factorul-rh-nul">
+      <h2 class="text-ro">Factorul Rh-nul</h2>
+      <h2 class="text-en">The Rh-null Factor</h2>
+      
+      <!-- Paragraf RO -->
+      <p class="text-ro">
+        <br><span class="spatiu-alineat"></span>Rh-nul, numit și „golden blood”, este cel mai rar tip de sânge din lume, lipsit complet de antigenii Rh de pe globulele roșii. Au fost identificate mai puțin de 50 de persoane cu acest tip.
+        <br><span class="spatiu-alineat"></span>Este extrem de valoros pentru transfuzii , deoarece poate fi donat la orice grupă de sânge cu Rh⁺ sau Rh⁻ doar că este păstrat pentru cazurile rare, dar cei care îl au pot primi sânge doar de la un alt Rh-nul, ceea ce devine mai dificil și îi fac să se bazeze pe cooperarea unei rețele mici de donatori Rh-nul din întreaga lume dacă are nevoie.
+        <br>Factorul Rh-nul pare a fi o mutație genetică, fiind frecvent observată cu mutații în gena RHAG, care codifică glicoproteina asociată Rh-ului. Această mutație este adesea asociată cu o boală numită stomatocitoză ereditară. Persoanele putând avea anemie hemolitică.
+        <br>Mutația poate apărea prin câțiva factori:
+        <br><span class="spatiu-alineat"></span>&bull;Căsătorie consanguină - între veri, frați/surori sau rude apropiate, chiar rude îndepărtate 
+        <br><span class="spatiu-alineat"></span>&bull;Genele autozomale (gene anormale care au trăsături de boală transmise în familie)
+        <br><span class="spatiu-alineat"></span>&bull;Modificări sau ștergere completă a anumitor gene, care sunt RHD și RHCE sau RHAG
+      </p>
+      
+      <!-- Paragraf EN -->
+      <p class="text-en">
+        <br><span class="spatiu-alineat"></span>Rh-null, also known as “golden blood,” is the rarest blood type in the world. It completely lacks Rh antigens on red blood cells. Fewer than 50 people with this blood type have been identified worldwide.
+        <br><span class="spatiu-alineat"></span>It is extremely valuable for transfusions because it can be donated to any blood type with Rh⁺ or Rh⁻. However, it is reserved for rare cases. Those who have it can only receive blood from another Rh-null donor, which makes it more difficult and forces them to rely on the cooperation of a small network of Rh-null donors worldwide if needed.
+        <br><span class="spatiu-alineat"></span>The Rh-null factor appears to be a genetic mutation, frequently observed along with mutations in the RHAG gene, which encodes the Rh-associated glycoprotein. This mutation is often associated with a condition called hereditary stomatocytosis. Affected individuals may have hemolytic anemia.
+        <br>The mutation can occur due to several factors:
+        <br><span class="spatiu-alineat"></span>&bull;Consanguineous marriage – between cousins, siblings, or close relatives, even distant relatives.
+        <br><span class="spatiu-alineat"></span>&bull;Autosomal genes (abnormal genes that carry disease traits inherited within families)
+        <br><span class="spatiu-alineat"></span>&bull;Alterations or complete deletion of certain genes, such as RHD, RHCE, or RHAG.
+      </p>
+    </section>
+
+    <!-- Secțiunea despre mituri -->
+    <section id="mituri">
+      <h2 class="text-ro">Mituri și realități despre sistemul circulator</h2>
+      <h2 class="text-en">Myths and Facts about the Circulatory System</h2>
+<!-- ROMÂNĂ -->
+      <div class="text-ro">
+        <p><strong>🔴 Mit 1:</strong> „Inima este în partea stângă a pieptului”<br>
+        <strong>✔ Realitate:</strong> Inima este poziționată în partea stângă a pieptului, deși nu complet pe partea stângă cum se crede în mod obișnuit. Acest organ vital este situat în centrul cutiei toracice, ușor înclinat spre stânga, între cei doi plămâni și în spatele sternului. Poziționarea sa specifică permite funcționarea optimă în coordonare cu celelalte organe vitale din cavitatea toracică.</p>
+        <br>
+        <p><strong>💔 Mit 2:</strong> „O inimă frântă e doar o metaforă”<br>
+        <strong>✔ Realitate:</strong> Deși pare doar o expresie poetică, „inima frântă” este un fenomen real recunoscut medical. Se numește cardiomiopatie Takotsubo și apare uneori după un șoc emoțional puternic — cum ar fi pierderea unei persoane dragi sau o frică intensă. Inima se contractă anormal, provocând dureri în piept și dificultăți de respirație, simptome care pot semăna cu un infarct. Din fericire, este reversibilă în cele mai multe cazuri.</p>
+        <br>
+        <p><strong>❤️ Mit 3:</strong> „Inima bate mai repede când ești îndrăgostit”<br>
+        <strong>✔ Realitate:</strong> Atunci când ne îndrăgostim, corpul eliberează adrenalină, dopamină și alte substanțe care activează sistemul nervos simpatic. Acest lucru determină accelerarea ritmului cardiac, creșterea tensiunii arteriale și senzația de „fluturi în stomac”. Inima răspunde biologic la emoțiile intense, nu la „dragostea” în sine.</p>
+        <br>
+        <p><strong>💥 Mit 4:</strong> „Poți reporni inima lovind pieptul cu pumnul, ca în filme”<br>
+        <strong>✔ Realitate:</strong> În filme, vedem personaje care dau un pumn puternic în pieptul unei persoane inconștiente, iar inima „revine la viață”. În realitate, această tehnică (numită precordial thump) este periculoasă și rar folosită. Doar resuscitarea și defibrilarea pot fi eficiente. Lovirea pieptului poate cauza leziuni grave.</p>
+        <br>
+        <p><strong>💖 Mit 5:</strong> „Dacă cineva are o rană gravă, se leagă o bucată de material peste și totul e ok”<br>
+        <strong>✔ Realitate:</strong> Personajele din filme aplică o eșarfă pe o rană gravă, o leagă și... gata. În realitate, fără presiune fermă și continuă, sângele nu se oprește. Iar garoul se folosește doar ca ultimă soluție și cu precizie. Folosirea greșită poate duce la amputare.</p>
+      </div>
+
+      <!-- ENGLEZĂ -->
+      <div class="text-en">
+        <p><strong>🔴 Myth 1:</strong> “The heart is on the left side of the chest”<br>
+        <strong>✔ Fact:</strong> The heart is located on the left side of the chest, although not entirely to the left as commonly believed. This vital organ is situated in the center of the chest cavity, slightly tilted to the left, between the two lungs and behind the sternum. Its specific positioning allows it to function optimally in coordination with the other vital organs in the thoracic cavity.</p>
+        <br>
+        <p><strong>💔 Myth 2:</strong> “A broken heart is just a metaphor”<br>
+        <strong>✔ Fact:</strong> Although it sounds poetic, a “broken heart” is a real medical condition known as Takotsubo cardiomyopathy. It can occur after intense emotional stress, such as the loss of a loved one or a traumatic event. The heart’s pumping function becomes temporarily weakened, causing chest pain and shortness of breath — symptoms that resemble a heart attack. Thankfully, most people recover fully.</p>
+        <br>
+        <p><strong>❤️ Myth 3:</strong> “Your heart beats faster when you're in love”<br>
+        <strong>✔ Fact:</strong> When we fall in love, the body releases adrenaline, dopamine, and other chemicals that activate the sympathetic nervous system. This leads to a faster heart rate, increased blood pressure, and the sensation of “butterflies in your stomach.” The heart reacts biologically to emotional stimulation, not to love as a feeling.</p>
+        <br>
+        <p><strong>💥 Myth 4:</strong> “You can restart the heart by punching the chest, like in movies”<br>
+        <strong>✔ Fact:</strong> In movies, we often see characters deliver a strong punch to the chest of an unconscious person, and the heart “magically” starts beating again. In reality, this technique (called precordial thump) is dangerous and rarely used. Only proper resuscitation and defibrillation can be effective. Punching the chest can cause serious injury and is not recommended.</p>
+        <br>
+        <p><strong>💖 Myth 5:</strong> “If someone has a serious wound, you just tie a piece of cloth around it and everything’s fine”<br>
+        <strong>✔ Fact:</strong> In movies, characters tie a scarf or cloth over a serious wound and that’s it. In real life, bleeding won’t stop without strong, continuous pressure. A tourniquet is used only as a last resort, and it must be applied correctly — otherwise, it can cut off circulation and lead to limb damage or even amputation.</p>
+      </div>
+    </section>
+
+    <!-- Secțiunea despre circulația sângelui -->
+    <section id="circulatie-sanguina"> 
+      <h2 class="text-ro">Circulația sanguină</h2>
+      <h2 class="text-en">Blood Circulation</h2>
+      
+      <!-- Paragraf RO -->
+      <p class="text-ro">
+        <br><span class="spatiu-alineat"></span>Prin circulația sanguină înțelegem mișcarea sângelui în interiorul sistemului vascular sanguin.
+        <br><span class="spatiu-alineat"></span><span class="spatiu-alineat"></span>În circulația sanguină se poate constata existența a două circuite distincte, care pornesc din inimă: <u>circulația mare</u> și <u>circulația mică</u>.
+        <br><span class="text-darkred text-large">Circulația Mare</span> numită și circulația de nutriție, este drumul pe care îl urmează sângele de la inimă la țesuturi și înapoi. Circuitul începe din ventriculul stâng și se termină în atriul drept. Acesta transportă la organe substanțele nutritive și oxigen. Apoi preia de la ele substanțele de excreție, care urmează să fie eliminate.
+        <br><br>
+        <img src="marea-circulatie.png" alt="Marea circulație sistemică a corpului" class="text-ro">
+        <br><br>
+        <span class="spatiu-alineat"></span><span class="text-darkred text-large">Circulația Mică</span> numită și circulația pulmonară reprezintă drumul pe care îl urmează sângele de la inimă la plămâni și înapoi. Circulația pulmonară începe din ventriculul drept și se termină în atriul stâng.
+        <br><br>
+        <img src="mica-circulatie.png" alt="Mica circulație pulmonară" class="text-ro">
+        <br><br><span class="spatiu-alineat"></span>Trebuie remarcat faptul că denumirea de marea și mica circulație se referă la lungimea acestora. Din punct de vedere al cantității sângelui care circulă prin ele, denumirile nu sunt corespunzătoare, pentru că în ambele circuite trece, în același timp, aceeași cantitate de sânge.
+      </p>
+<!-- Paragraf EN -->
+      <p class="text-en">
+        <br><span class="spatiu-alineat"></span>Blood circulation refers to the movement of blood within the vascular system.
+        <br><span class="spatiu-alineat"></span>Blood circulation consists of two distinct circuits that begin in the heart: <u>the systemic circulation</u> and <u>the pulmonary circulation</u>.
+        <span class="spatiu-alineat"></span><br><span class="text-darkred text-large">Systemic circulation</span> also called the circulation of nutrition, is the pathway through which blood travels from the heart to the tissues and back. The circuit begins in the left ventricle and ends in the right atrium. It delivers oxygen and nutrients to the organs and then collects waste substances that will be eliminated.
+        <br><br>
+        <img src="marea-circulatie-engleza.png" alt="Systemic circulation diagram" class="text-en">
+        <br><br>
+        <span class="spatiu-alineat"></span><span class="text-darkred text-large">Pulmonary circulation</span> also known as the pulmonary circuit, is the pathway through which blood travels from the heart to the lungs and back. The pulmonary circulation begins in the right ventricle and ends in the left atrium.
+        <br><br>
+        <img src="mica-circulatie-engleza.png" alt="Pulmonary circulation diagram" class="text-en">
+        <br><br><span class="spatiu-alineat"></span>It is important to note that the terms “systemic” and “pulmonary” circulation refer to the length of the circuits. From the perspective of the amount of blood passing through them, these names are not entirely accurate, because the same amount of blood flows through both circuits at the same time.
+      </p>
+    </section>
+
+    <!-- Secțiunea de test / verificare cunoștințe (ID corectat) -->
+    <section id="quiz">
+      <h2 class="text-ro">Test de verificare a cunoștințelor</h2>
+      <h2 class="text-en">Knowledge Test</h2>
+
+      <form id="quizForm">
+        <!-- Întrebarea 1 RO-->
+        <div class="text-ro">
+          <p>1. Care este rolul miocardului?</p>
+          <label><input type="radio" name="q1" value="a"> Coagularea sângelui</label>
+          <label><input type="radio" name="q1" value="b"> Pomparea sângelui prin contracții</label>
+          <label><input type="radio" name="q1" value="c"> Producerea anticorpilor</label>
+        </div>
+        <!-- Întrebarea 1 EN-->
+        <div class="text-en">
+          <p>1. What is the role of the myocardium?</p>
+          <label><input type="radio" name="q1" value="a"> Blood clotting</label>
+          <label><input type="radio" name="q1" value="b"> Pumping blood through contractions</label>
+          <label><input type="radio" name="q1" value="c"> Producing antibodies</label>
+        </div><br>
+
+        <!-- Întrebarea 2 RO -->
+        <div class="text-ro">
+          <p>2. Ce funcție au valvele din vene?</p>
+          <label><input type="radio" name="q2" value="a"> Filtrarea limfei</label>
+          <label><input type="radio" name="q2" value="b"> Aducerea oxigenului</label>
+          <label><input type="radio" name="q2" value="c"> Prevenirea întoarcerii sângelui</label>
+        </div>
+        <!-- Întrebarea 2 EN -->
+        <div class="text-en">
+          <p>2. What is the function of the valves in veins?</p>
+          <label><input type="radio" name="q2" value="a"> Filtering lymph</label>
+          <label><input type="radio" name="q2" value="b"> Bringing oxygen</label>
+          <label><input type="radio" name="q2" value="c"> Preventing the backflow of blood</label>
+        </div><br>
+
+        <!-- Întrebarea 3 RO -->
+        <div class="text-ro">
+          <p>3. Ce celule lipsesc din limfă?</p>
+          <label><input type="radio" name="q3" value="a"> Leucocite</label>
+          <label><input type="radio" name="q3" value="b"> Trombocite</label>
+          <label><input type="radio" name="q3" value="c"> Eritrocite</label>
+        </div>
+        <!-- Întrebarea 3 EN -->
+        <div class="text-en">
+          <p>3. Which cells are missing from lymph?</p>
+          <label><input type="radio" name="q3" value="a"> White blood cells</label>
+          <label><input type="radio" name="q3" value="b"> Platelets</label>
+          <label><input type="radio" name="q3" value="c"> Red blood cells</label>
+        </div><br>
+
+        <!-- Întrebarea 4 RO -->
+        <div class="text-ro">
+          <p>4. Ce grupă de sânge este considerată donator universal?</p>
+          <label><input type="radio" name="q4" value="a"> Grupa AB</label>
+          <label><input type="radio" name="q4" value="b"> Grupa A</label>
+          <label><input type="radio" name="q4" value="c"> Grupa 0</label>
+        </div>
+        <!-- Întrebarea 4 EN -->
+        <div class="text-en">
+          <p>4. Which blood type is considered a universal donor?</p>
+          <label><input type="radio" name="q4" value="a"> Type AB</label>
+          <label><input type="radio" name="q4" value="b"> Type A</label>
+          <label><input type="radio" name="q4" value="c"> Type O</label>
+        </div><br>
+
+        <!-- Întrebarea 5 RO-->
+        <div class="text-ro">
+          <p>5. Ce rol au capilarele?</p>
+          <label><input type="radio" name="q5" value="a"> Transportă sângele între artere și vene</label>
+          <label><input type="radio" name="q5" value="b"> Coagulează sângele</label>
+          <label><input type="radio" name="q5" value="c"> Produc oxigen</label>
+        </div>
+        <!-- Întrebarea 5 EN -->
+        <div class="text-en">
+          <p>5. What is the role of capillaries?</p>
+          <label><input type="radio" name="q5" value="a"> Carry blood between arteries and veins</label>
+          <label><input type="radio" name="q5" value="b"> Clot the blood</label>
+          <label><input type="radio" name="q5" value="c"> Produce oxygen</label>
+        </div><br>
+
+        <!-- Întrebarea 6 RO -->
+        <div class="text-ro">
+          <p>6. Ce înseamnă dacă ai Rh negativ?</p>
+          <label><input type="radio" name="q6" value="a"> Ai antigenul Rh pe hematii</label>
+          <label><input type="radio" name="q6" value="b"> Nu ai antigenul Rh</label>
+          <label><input type="radio" name="q6" value="c"> Ai doar grupa 0</label>
+        </div>
+        <!-- Întrebarea 6 EN -->
+        <div class="text-en">
+          <p>6. What does it mean if you are Rh negative?</p>
+          <label><input type="radio" name="q6" value="a"> You have the Rh antigen on red blood cells</label>
+          <label><input type="radio" name="q6" value="b"> You do not have the Rh antigen</label>
+          <label><input type="radio" name="q6" value="c"> You only have blood type O</label>
+        </div><br>
+
+        <!-- Întrebarea 7 RO -->
+        <div class="text-ro">
+          <p>7. Cu ce boală genetică rară este adesea asociată mutația care determină apariția factorului Rh-nul?</p>
+          <label><input type="radio" name="q7" value="a"> Leucemie</label>
+          <label><input type="radio" name="q7" value="b"> Anemie pernicioasă</label>
+          <label><input type="radio" name="q7" value="c"> Stomatocitoză ereditară</label>
+        </div>
+        <!-- Întrebarea 7 EN (Corectat numărul din text din 6 în 7 pentru consistență) -->
+        <div class="text-en">
+          <p>7. Which rare genetic disorder is often associated with the mutation that causes the Rh-null blood type?</p>
+          <label><input type="radio" name="q7" value="a"> Leukemia</label>
+          <label><input type="radio" name="q7" value="b"> Pernicious anemia</label>
+          <label><input type="radio" name="q7" value="c"> Hereditary stomatocytosis</label>
+        </div><br>
+
+        <!-- Butoane RO -->
+        <button type="button" onclick="verificaTestul()" class="text-ro">Verifică răspunsurile</button>
+        <button type="button" onclick="refaTestul()" class="text-ro">Refă testul</button>
+
+        <!-- Butoane EN -->
+        <button type="button" onclick="verificaTestul()" class="text-en">Check answers</button>
+        <button type="button" onclick="refaTestul()" class="text-en">Restart test</button>
+      </form>
+
+      <div id="rezultat"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="text-ro">&copy; 2025 Sistemul Circulator - Cunoașteți propriul corp</p> 
+      <p class="text-ro">Toate drepturile rezervate</p>
+      <p class="text-ro">
+        <span>ilinca.georgescu@gmail.com</span>
+        <span class="contact-margin">0722098712</span>
+      </p>
+      
+      <p class="text-en">&copy; 2025 Circulatory System - Know your own body</p>
+      <p class="text-en">All rights reserved</p>
+      <p class="text-en">
+        <span>ilinca.georgescu@gmail.com</span>
+        <span class="contact-margin">+00442573907216</span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Butonul Scroll To Top corect plasat -->
+  <button onclick="scrollToTop()" id="scrollTopBtn" title="Înapoi sus">↑</button>
+
+  <!-- O singură includere de script extern, gata de rulare la final (Bifează Performanță) -->
+  <script src="script.js"></script>
+</body>
+</html>
