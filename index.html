@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Politica CSP defensivă complet curată (am scos unsafe-inline pe stiluri conform baremului) -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self' 'unsafe-inline';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self';">
   <!-- Fișier CSS extern pentru stilizarea paginii --> 
   <link rel="stylesheet" href="style.css">
   <title>Sistemul Circulator</title>
@@ -20,21 +19,31 @@
   
   <!-- Navbar -->
   <nav id="navbar">
-    <a href="#despre" data-ro="Sistemul" data-en="System">Sistemul</a>
-    <a href="#inima" data-ro="Inima" data-en="Heart">Inima</a>
-    <a href="#artere" data-ro="Artere" data-en="Arteries">Artere</a>
-    <a href="#venele" data-ro="Venele" data-en="Veins">Venele</a>
-    <a href="#capilare" data-ro="Capilare" data-en="Capillaries">Capilare</a>
-    <a href="#sange" data-ro="Sângele" data-en="Blood">Sângele</a>
-    <a href="#grupele" data-ro="Grupele de sânge" data-en="Blood Types">Grupele de sânge</a>
-    <a href="#factorul-rh" data-ro="Factorul Rh" data-en="Rh Factor">Factorul Rh</a>
-    <a href="#factorul-rh-nul" data-ro="Factorul Rh-nul" data-en="Rh-null Factor">Factorul Rh-nul</a>
-    <a href="#circulatie-sanguina" data-ro="Circulația sanguină" data-en="Blood Circulation">Circulația sanguină</a>
-    <a href="#mituri" data-ro="Mit" data-en="Myth">Mit</a>
-    <a href="#quiz" data-ro="Consolidare" data-en="Review">Consolidare</a>
+    <button id="navToggleBtn" class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-    <button onclick="toggleLanguage()" id="languageBtn">EN</button>
-    <button onclick="toggleDarkMode()" id="darkModeBtn">🌙 Dark Mode</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#despre" data-ro="Sistemul" data-en="System">Sistemul</a>
+      <a href="#inima" data-ro="Inima" data-en="Heart">Inima</a>
+      <a href="#artere" data-ro="Artere" data-en="Arteries">Artere</a>
+      <a href="#venele" data-ro="Venele" data-en="Veins">Venele</a>
+      <a href="#capilare" data-ro="Capilare" data-en="Capillaries">Capilare</a>
+      <a href="#sange" data-ro="Sângele" data-en="Blood">Sângele</a>
+      <a href="#grupele" data-ro="Grupele de sânge" data-en="Blood Types">Grupele de sânge</a>
+      <a href="#factorul-rh" data-ro="Factorul Rh" data-en="Rh Factor">Factorul Rh</a>
+      <a href="#factorul-rh-nul" data-ro="Factorul Rh-nul" data-en="Rh-null Factor">Factorul Rh-nul</a>
+      <a href="#circulatie-sanguina" data-ro="Circulația sanguină" data-en="Blood Circulation">Circulația sanguină</a>
+      <a href="#mituri" data-ro="Mit" data-en="Myth">Mit</a>
+      <a href="#quiz" data-ro="Consolidare" data-en="Review">Consolidare</a>
+    </div>
+
+    <div class="nav-actions">
+      <button id="languageBtn" aria-label="Schimbă limba">EN</button>
+      <button id="darkModeBtn" aria-label="Activează modul întunecat">🌙 Dark Mode</button>
+    </div>
   </nav>
 
   <main>
@@ -88,7 +97,7 @@
           Your browser does not support the video tag.
         </video>
         <br>
-        <button onclick="toggleVideo()">Pornire / Oprire Video</button>
+        <button id="btnVideoRO">Pornire / Oprire Video</button>
       </p>
     
       <!-- Paragraf engleză -->
@@ -120,7 +129,7 @@
           Your browser does not support the video tag.
         </video>
         <br>
-        <button onclick="toggleVideo()">Play / Pause Video</button>
+     <button id="btnVideoEN">Play / Pause Video</button>
       </p>
     </section>
  <!-- Secțiunea despre artere -->
@@ -273,22 +282,31 @@
 
       <!-- Formular Simulare Română -->
       <div class="text-ro">
-        <div id="simulare-grupa-ro">
+        <div id="simulare-grupa-ro" class="simulator-card">
           <h3>🧪 Simulare: Află ce grupă ai!</h3>
           <p>Bifează antigenele de pe hematii și anticorpii din plasmă:</p>
           <form>
-            <label><strong>Antigene:</strong></label><br>
-            <input type="checkbox" id="antigenA-ro"> A
-            <input type="checkbox" id="antigenB-ro"> B
-            <br><br>
-            <label><strong>Anticorpi:</strong></label><br>
-            <input type="checkbox" id="anticorpA-ro"> anti-A
-            <input type="checkbox" id="anticorpB-ro"> anti-B
-            <br><br>
-            <button type="button" onclick="determinaGrupa()">🔍 Află grupa</button>
-           <button type="button" onclick="reseteazaSimulatorGrupa()" style="margin-left: 10px;">🔄 Resetează</button>
+            <div class="form-row">
+              <label><strong>Antigene:</strong></label>
+              <div class="checkbox-group">
+                <label><input type="checkbox" id="antigenA-ro"> A</label>
+                <label><input type="checkbox" id="antigenB-ro"> B</label>
+              </div>
+            </div>
+            <div class="form-row">
+              <label><strong>Anticorpi:</strong></label>
+              <div class="checkbox-group">
+                <label><input type="checkbox" id="anticorpA-ro"> anti-A</label>
+                <label><input type="checkbox" id="anticorpB-ro"> anti-B</label>
+              </div>
+            </div>
+            <div class="button-group">
+              <button type="button" id="btnDeterminaRO" class="button-primary">🔍 Determină grupa</button>
+              <button type="button" id="btnReseteazaRO" class="button-secondary">🔄 Resetează</button>
+            </div>
           </form>
           <p id="rezultatGrupa-ro" class="text-bold-margin"></p>
+          <p id="explicatieGrupa-ro" class="text-margin"></p>
         </div>
       </div>
 
@@ -326,8 +344,8 @@
             <input type="checkbox" id="anticorpA-en"> anti-A
             <input type="checkbox" id="anticorpB-en"> anti-B
             <br><br>
-            <button type="button" onclick="determinaGrupa()">🔍 Find blood type</button>
-             <button type="button" onclick="reseteazaSimulatorGrupa()" style="margin-left: 10px;">🔄 Reset</button>
+           <button type="button" id="btnDeterminaEN" class="button-primary">🔍 Find blood type</button>
+            <button type="button" id="btnReseteazaEN" class="button-secondary">🔄 Reset</button>
             </form>
           <p id="rezultatGrupa-en" class="text-bold-margin"></p>
           <p id="explicatieGrupa-en" class="text-margin"></p>
@@ -579,12 +597,12 @@
         </div><br>
 
         <!-- Butoane RO -->
-        <button type="button" onclick="verificaTestul()" class="text-ro">Verifică răspunsurile</button>
-        <button type="button" onclick="refaTestul()" class="text-ro">Refă testul</button>
+        <button type="button" id="btnVerificaRO" class="text-ro">Verifică răspunsurile</button>
+        <button type="button" id="btnRefaRO" class="text-ro">Refă testul</button>
 
         <!-- Butoane EN -->
-        <button type="button" onclick="verificaTestul()" class="text-en">Check answers</button>
-        <button type="button" onclick="refaTestul()" class="text-en">Restart test</button>
+        <button type="button" id="btnVerificaEN" class="text-en">Check answers</button>
+        <button type="button" id="btnRefaEN" class="text-en">Restart test</button>
       </form>
 
       <div id="rezultat"></div>
@@ -610,7 +628,7 @@
   </footer>
 
   <!-- Butonul Scroll To Top corect plasat -->
-  <button onclick="scrollToTop()" id="scrollTopBtn" title="Înapoi sus">↑</button>
+  <button id="scrollTopBtn" title="Înapoi sus">↑</button>
 
   <!-- O singură includere de script extern, gata de rulare la final (Bifează Performanță) -->
   <script src="script.js"></script>

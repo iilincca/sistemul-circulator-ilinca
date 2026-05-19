@@ -16,14 +16,14 @@ function verificaTestul() {
 
     for (let i = 0; i < variante.length; i++) {
       const label = variante[i].parentElement;
-      label.style.color = "";
+      label.classList.remove("raspuns-corect", "raspuns-gresit");
 
       if (variante[i].checked) {
         if (variante[i].value === corect) {
           scor++;
-          label.style.color = "green";
+          label.classList.add("raspuns-corect");
         } else {
-          label.style.color = "red";
+          label.classList.add("raspuns-gresit");
         }
       }
     }
@@ -57,7 +57,7 @@ function refaTestul() {
   form.reset();
 
   const labels = form.querySelectorAll("label");
-  labels.forEach(label => label.style.color = "");
+  labels.forEach(label => label.classList.remove("raspuns-corect", "raspuns-gresit"));
 
   document.getElementById("rezultat").innerText = "";
 }
@@ -102,18 +102,49 @@ function toggleDarkMode() {
 // Când pagina se încarcă, verificăm salvările offline
 window.addEventListener("DOMContentLoaded", () => {
   const savedMode = localStorage.getItem("darkMode");
-
   if (savedMode === "enabled") {
-    document.body.classList.add("dark"); 
-    
+    document.body.classList.add("dark");
     const btn = document.getElementById("darkModeBtn");
-    if (btn) btn.innerText = "☀️ Light Mode"; 
+    if (btn) btn.innerText = "☀️ Light Mode";
   }
-
-  // Citirea limbii salvate la încărcare
   const savedLang = localStorage.getItem("siteLang");
   if (savedLang && savedLang !== currentLang) {
     toggleLanguage();
+  }
+
+  document.getElementById("languageBtn").addEventListener("click", toggleLanguage);
+  document.getElementById("darkModeBtn").addEventListener("click", toggleDarkMode);
+  document.getElementById("btnVideoRO").addEventListener("click", toggleVideo);
+  document.getElementById("btnVideoEN").addEventListener("click", toggleVideo);
+  document.getElementById("btnDeterminaRO").addEventListener("click", determinaGrupa);
+  document.getElementById("btnReseteazaRO").addEventListener("click", reseteazaSimulatorGrupa);
+  document.getElementById("btnDeterminaEN").addEventListener("click", determinaGrupa);
+  document.getElementById("btnReseteazaEN").addEventListener("click", reseteazaSimulatorGrupa);
+  document.getElementById("btnVerificaRO").addEventListener("click", verificaTestul);
+  document.getElementById("btnRefaRO").addEventListener("click", refaTestul);
+  document.getElementById("btnVerificaEN").addEventListener("click", verificaTestul);
+  document.getElementById("btnRefaEN").addEventListener("click", refaTestul);
+  document.getElementById("scrollTopBtn").addEventListener("click", scrollToTop);
+
+  const navToggle = document.getElementById("navToggleBtn");
+  const navLinks = document.getElementById("navLinks");
+
+  if (navToggle && navLinks) {
+    navToggle.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      navToggle.classList.toggle("open", open);
+      navToggle.setAttribute("aria-expanded", open.toString());
+    });
+
+    document.querySelectorAll("#navLinks a").forEach(link => {
+      link.addEventListener("click", () => {
+        if (navLinks.classList.contains("open")) {
+          navLinks.classList.remove("open");
+          navToggle.classList.remove("open");
+          navToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
   }
 });
 
