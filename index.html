@@ -283,30 +283,42 @@
       <!-- Formular Simulare Română -->
       <div class="text-ro">
         <div id="simulare-grupa-ro" class="simulator-card">
-          <h3>🧪 Simulare: Află ce grupă ai!</h3>
-          <p>Bifează antigenele de pe hematii și anticorpii din plasmă:</p>
-          <form>
+          <h3>🧪 Simulare: Compatibilitate Transfuzii Sanguine</h3>
+          <p>Selectează grupa pacientului și alegeți donatorii compatibili:</p>
+          <form id="formGrupaRO">
             <div class="form-row">
-              <label><strong>Antigene:</strong></label>
-              <div class="checkbox-group">
-                <label><input type="checkbox" id="antigenA-ro"> A</label>
-                <label><input type="checkbox" id="antigenB-ro"> B</label>
-              </div>
+              <label><strong>Grupa pacientului:</strong></label>
+              <select id="patientGroupRO" class="blood-select">
+                <option value="">-- Selectează grupa --</option>
+                <option value="O-">O- (Donator universal)</option>
+                <option value="O+">O+</option>
+                <option value="A-">A-</option>
+                <option value="A+">A+</option>
+                <option value="B-">B-</option>
+                <option value="B+">B+</option>
+                <option value="AB-">AB-</option>
+                <option value="AB+">AB+ (Receptor universal)</option>
+              </select>
             </div>
             <div class="form-row">
-              <label><strong>Anticorpi:</strong></label>
-              <div class="checkbox-group">
-                <label><input type="checkbox" id="anticorpA-ro"> anti-A</label>
-                <label><input type="checkbox" id="anticorpB-ro"> anti-B</label>
+              <label><strong>Grupe donatori compatibile:</strong></label>
+              <div class="checkbox-group checkbox-group-donors">
+                <label><input type="checkbox" class="donor-checkbox" value="O-"> O-</label>
+                <label><input type="checkbox" class="donor-checkbox" value="O+"> O+</label>
+                <label><input type="checkbox" class="donor-checkbox" value="A-"> A-</label>
+                <label><input type="checkbox" class="donor-checkbox" value="A+"> A+</label>
+                <label><input type="checkbox" class="donor-checkbox" value="B-"> B-</label>
+                <label><input type="checkbox" class="donor-checkbox" value="B+"> B+</label>
+                <label><input type="checkbox" class="donor-checkbox" value="AB-"> AB-</label>
+                <label><input type="checkbox" class="donor-checkbox" value="AB+"> AB+</label>
               </div>
             </div>
             <div class="button-group">
-              <button type="button" id="btnDeterminaRO" class="button-primary">🔍 Determină grupa</button>
-              <button type="button" id="btnReseteazaRO" class="button-secondary">🔄 Resetează</button>
+              <button type="button" class="button-primary verificaBtn-ro" data-action="verificaRO">✓ Verifică</button>
+              <button type="button" class="button-secondary reseteazaBtn-ro" data-action="reseteazaRO">🔄 Resetează</button>
             </div>
           </form>
-          <p id="rezultatGrupa-ro" class="text-bold-margin"></p>
-          <p id="explicatieGrupa-ro" class="text-margin"></p>
+          <div id="rezultatCompatibilRO" class="text-bold-margin"></div>
         </div>
       </div>
 
@@ -332,23 +344,43 @@
         </p>
 
         <!-- Formular Simulare Engleză -->
-        <div id="simulare-grupa-en">
-          <h3>🧪 Simulation: Find your blood type!</h3>
-          <p>Check the antigens on red cells and antibodies in plasma:</p>
-          <form>
-            <label><strong>Antigens:</strong></label><br>
-            <input type="checkbox" id="antigenA-en"> A
-            <input type="checkbox" id="antigenB-en"> B
-            <br><br>
-            <label><strong>Antibodies:</strong></label><br>
-            <input type="checkbox" id="anticorpA-en"> anti-A
-            <input type="checkbox" id="anticorpB-en"> anti-B
-            <br><br>
-           <button type="button" id="btnDeterminaEN" class="button-primary">🔍 Find blood type</button>
-            <button type="button" id="btnReseteazaEN" class="button-secondary">🔄 Reset</button>
-            </form>
-          <p id="rezultatGrupa-en" class="text-bold-margin"></p>
-          <p id="explicatieGrupa-en" class="text-margin"></p>
+        <div id="simulare-grupa-en" class="simulator-card">
+          <h3>🧪 Simulation: Blood Transfusion Compatibility</h3>
+          <p>Select the patient's blood type and choose compatible donors:</p>
+          <form id="formGrupaEN">
+            <div class="form-row">
+              <label><strong>Patient's blood type:</strong></label>
+              <select id="patientGroupEN" class="blood-select">
+                <option value="">-- Select blood type --</option>
+                <option value="O-">O- (Universal donor)</option>
+                <option value="O+">O+</option>
+                <option value="A-">A-</option>
+                <option value="A+">A+</option>
+                <option value="B-">B-</option>
+                <option value="B+">B+</option>
+                <option value="AB-">AB-</option>
+                <option value="AB+">AB+ (Universal recipient)</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label><strong>Compatible donor blood types:</strong></label>
+              <div class="checkbox-group checkbox-group-donors">
+                <label><input type="checkbox" class="donor-checkbox" value="O-"> O-</label>
+                <label><input type="checkbox" class="donor-checkbox" value="O+"> O+</label>
+                <label><input type="checkbox" class="donor-checkbox" value="A-"> A-</label>
+                <label><input type="checkbox" class="donor-checkbox" value="A+"> A+</label>
+                <label><input type="checkbox" class="donor-checkbox" value="B-"> B-</label>
+                <label><input type="checkbox" class="donor-checkbox" value="B+"> B+</label>
+                <label><input type="checkbox" class="donor-checkbox" value="AB-"> AB-</label>
+                <label><input type="checkbox" class="donor-checkbox" value="AB+"> AB+</label>
+              </div>
+            </div>
+            <div class="button-group">
+              <button type="button" class="button-primary verificaBtn-en" data-action="verificaEN">✓ Check</button>
+              <button type="button" class="button-secondary reseteazaBtn-en" data-action="reseteazaEN">🔄 Reset</button>
+            </div>
+          </form>
+          <div id="rezultatCompatibilEN" class="text-bold-margin"></div>
         </div>
       </div>
     </section>

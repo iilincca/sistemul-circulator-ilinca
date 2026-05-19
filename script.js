@@ -116,15 +116,30 @@ window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("darkModeBtn").addEventListener("click", toggleDarkMode);
   document.getElementById("btnVideoRO").addEventListener("click", toggleVideo);
   document.getElementById("btnVideoEN").addEventListener("click", toggleVideo);
-  document.getElementById("btnDeterminaRO").addEventListener("click", determinaGrupa);
-  document.getElementById("btnReseteazaRO").addEventListener("click", reseteazaSimulatorGrupa);
-  document.getElementById("btnDeterminaEN").addEventListener("click", determinaGrupa);
-  document.getElementById("btnReseteazaEN").addEventListener("click", reseteazaSimulatorGrupa);
   document.getElementById("btnVerificaRO").addEventListener("click", verificaTestul);
   document.getElementById("btnRefaRO").addEventListener("click", refaTestul);
   document.getElementById("btnVerificaEN").addEventListener("click", verificaTestul);
   document.getElementById("btnRefaEN").addEventListener("click", refaTestul);
   document.getElementById("scrollTopBtn").addEventListener("click", scrollToTop);
+
+  // Event listeners pentru noua simulare de compatibilitate grupe sanguine
+  const verificaBtnRO = document.querySelector(".verificaBtn-ro");
+  const reseteazaBtnRO = document.querySelector(".reseteazaBtn-ro");
+  const verificaBtnEN = document.querySelector(".verificaBtn-en");
+  const reseteazaBtnEN = document.querySelector(".reseteazaBtn-en");
+
+  if (verificaBtnRO) {
+    verificaBtnRO.addEventListener("click", verificaCompatibilitatRO);
+  }
+  if (reseteazaBtnRO) {
+    reseteazaBtnRO.addEventListener("click", reseteazaFormularRO);
+  }
+  if (verificaBtnEN) {
+    verificaBtnEN.addEventListener("click", verificaCompatibilitatEN);
+  }
+  if (reseteazaBtnEN) {
+    reseteazaBtnEN.addEventListener("click", reseteazaFormularEN);
+  }
 
   const navToggle = document.getElementById("navToggleBtn");
   const navLinks = document.getElementById("navLinks");
@@ -185,13 +200,25 @@ function determinaGrupa() {
   const isRO = document.querySelector(".text-ro").style.display !== "none";
   const sufix = isRO ? "-ro" : "-en";
 
-  const antigenA = document.getElementById("antigenA" + sufix).checked;
-  const antigenB = document.getElementById("antigenB" + sufix).checked;
-  const anticorpA = document.getElementById("anticorpA" + sufix).checked;
-  const anticorpB = document.getElementById("anticorpB" + sufix).checked;
+  const antigenAEl = document.getElementById("antigenA" + sufix);
+  const antigenBEl = document.getElementById("antigenB" + sufix);
+  const anticorpAEl = document.getElementById("anticorpA" + sufix);
+  const anticorpBEl = document.getElementById("anticorpB" + sufix);
+
+  // Dacă elementele nu mai există (sunt schimbate), ieșim din funcție
+  if (!antigenAEl || !antigenBEl || !anticorpAEl || !anticorpBEl) {
+    return;
+  }
+
+  const antigenA = antigenAEl.checked;
+  const antigenB = antigenBEl.checked;
+  const anticorpA = anticorpAEl.checked;
+  const anticorpB = anticorpBEl.checked;
 
   const rezultat = document.getElementById("rezultatGrupa" + sufix);
   const explicatie = document.getElementById("explicatieGrupa" + sufix);
+
+  if (!rezultat || !explicatie) return;
 
   let grupa = "";
   let detalii = "";
@@ -228,21 +255,113 @@ function determinaGrupa() {
 }
 // Funcția care curăță simulatorul de grupe (Română + Engleză)
 function reseteazaSimulatorGrupa() {
-  // Debifăm căsuțele pentru Română
-  document.getElementById("antigenA-ro").checked = false;
-  document.getElementById("antigenB-ro").checked = false;
-  document.getElementById("anticorpA-ro").checked = false;
-  document.getElementById("anticorpB-ro").checked = false;
+  // Verificăm dacă elementele vechi mai există (pentru compatibilitate)
+  const antigenARO = document.getElementById("antigenA-ro");
+  if (antigenARO) {
+    antigenARO.checked = false;
+    document.getElementById("antigenB-ro").checked = false;
+    document.getElementById("anticorpA-ro").checked = false;
+    document.getElementById("anticorpB-ro").checked = false;
+    document.getElementById("antigenA-en").checked = false;
+    document.getElementById("antigenB-en").checked = false;
+    document.getElementById("anticorpA-en").checked = false;
+    document.getElementById("anticorpB-en").checked = false;
+    document.getElementById("rezultatGrupa-ro").textContent = "";
+    document.getElementById("explicatieGrupa-ro").textContent = "";
+    document.getElementById("rezultatGrupa-en").textContent = "";
+    document.getElementById("explicatieGrupa-en").textContent = "";
+  }
+}
 
-  // Debifăm căsuțele pentru Engleză
-  document.getElementById("antigenA-en").checked = false;
-  document.getElementById("antigenB-en").checked = false;
-  document.getElementById("anticorpA-en").checked = false;
-  document.getElementById("anticorpB-en").checked = false;
+/* === Compatibilitate Grupe Sanguine === */
 
-  // Ștergem textele de rezultat afișate pe ecran
-  document.getElementById("rezultatGrupa-ro").textContent = "";
-  document.getElementById("explicatieGrupa-ro").textContent = "";
-  document.getElementById("rezultatGrupa-en").textContent = "";
-  document.getElementById("explicatieGrupa-en").textContent = "";
+const bloodCompatibility = {
+  "O-": ["O-"],
+  "O+": ["O+", "O-"],
+  "A-": ["A-", "O-"],
+  "A+": ["A+", "A-", "O+", "O-"],
+  "B-": ["B-", "O-"],
+  "B+": ["B+", "B-", "O+", "O-"],
+  "AB-": ["AB-", "A-", "B-", "O-"],
+  "AB+": ["AB+", "AB-", "A+", "A-", "B+", "B-", "O+", "O-"]
+};
+
+function verificaCompatibilitatRO() {
+  const patientGroup = document.getElementById("patientGroupRO").value;
+  const resultDiv = document.getElementById("rezultatCompatibilRO");
+
+  if (!patientGroup) {
+    resultDiv.innerHTML = "<strong style='color: #d33a3a;'>⚠️ Selectează mai întâi grupa pacientului!</strong>";
+    return;
+  }
+
+  const selectedDonors = Array.from(document.querySelectorAll("#formGrupaRO .donor-checkbox:checked")).map(cb => cb.value);
+  const correctDonors = bloodCompatibility[patientGroup];
+
+  const incorrect = selectedDonors.filter(d => !correctDonors.includes(d));
+  const missing = correctDonors.filter(d => !selectedDonors.includes(d));
+
+  let html = `<strong>Grupa pacientului: ${patientGroup}</strong><br>`;
+  
+  if (selectedDonors.length === 0) {
+    html += "❌ Nu ai selectat niciun donator!<br>";
+  } else if (incorrect.length === 0 && missing.length === 0) {
+    html += "✅ Corect! Ai selectat exact donatorii compatibili!<br>";
+  } else if (incorrect.length === 0 && missing.length > 0) {
+    html += "⚠️ Parțial corect. Ți-au lipsit: <strong>" + missing.join(", ") + "</strong><br>";
+  } else {
+    html += "❌ Greșit! <br>";
+  }
+
+  if (missing.length > 0 || incorrect.length > 0) {
+    html += "<strong>Donatori compatibili corecți: " + correctDonors.join(", ") + "</strong>";
+  }
+
+  resultDiv.innerHTML = html;
+}
+
+function verificaCompatibilitatEN() {
+  const patientGroup = document.getElementById("patientGroupEN").value;
+  const resultDiv = document.getElementById("rezultatCompatibilEN");
+
+  if (!patientGroup) {
+    resultDiv.innerHTML = "<strong style='color: #d33a3a;'>⚠️ Please select the patient's blood type first!</strong>";
+    return;
+  }
+
+  const selectedDonors = Array.from(document.querySelectorAll("#formGrupaEN .donor-checkbox:checked")).map(cb => cb.value);
+  const correctDonors = bloodCompatibility[patientGroup];
+
+  const incorrect = selectedDonors.filter(d => !correctDonors.includes(d));
+  const missing = correctDonors.filter(d => !selectedDonors.includes(d));
+
+  let html = `<strong>Patient's blood type: ${patientGroup}</strong><br>`;
+  
+  if (selectedDonors.length === 0) {
+    html += "❌ You haven't selected any donors!<br>";
+  } else if (incorrect.length === 0 && missing.length === 0) {
+    html += "✅ Correct! You selected exactly the compatible donors!<br>";
+  } else if (incorrect.length === 0 && missing.length > 0) {
+    html += "⚠️ Partially correct. You missed: <strong>" + missing.join(", ") + "</strong><br>";
+  } else {
+    html += "❌ Incorrect! <br>";
+  }
+
+  if (missing.length > 0 || incorrect.length > 0) {
+    html += "<strong>Correct compatible donors: " + correctDonors.join(", ") + "</strong>";
+  }
+
+  resultDiv.innerHTML = html;
+}
+
+function reseteazaFormularRO() {
+  document.getElementById("patientGroupRO").value = "";
+  document.querySelectorAll("#formGrupaRO .donor-checkbox").forEach(cb => cb.checked = false);
+  document.getElementById("rezultatCompatibilRO").innerHTML = "";
+}
+
+function reseteazaFormularEN() {
+  document.getElementById("patientGroupEN").value = "";
+  document.querySelectorAll("#formGrupaEN .donor-checkbox").forEach(cb => cb.checked = false);
+  document.getElementById("rezultatCompatibilEN").innerHTML = "";
 }
